@@ -1,0 +1,90 @@
+﻿.ulProjectAllocation
+{
+    list-style-type:none;
+    margin:0px;
+    padding:0px;
+}
+    .ulProjectAllocation li {
+        list-style-type: none;
+        margin: 10px 10px 20px 10px;
+        padding: 0px;
+        display: block;
+        clear: both;
+    }
+        .ulProjectAllocation li .task-code {
+            font-weight: bold;
+            color: #fff;
+            text-align: left;
+            font-size: 12px;
+            font-style: italic;
+            background: rgb(17 161 140 / 0.85);
+            padding: 2px;
+            width: 200px;
+            display: block;
+            border-top-left-radius: 5px;
+        }
+        .ulProjectAllocation li .emp-assign {
+            color: #11A18C;
+            margin-right: 20px;
+        }
+    .ulProjectAllocation li .emp-assign a {
+        color: #0026ff;
+    }
+    .ulProjectAllocation li .detail-box {
+       
+        clear: both;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(198, 196, 201, 1);
+        padding: 20px;
+        display:block;
+        width:100%;
+        float:left;
+    }
+
+        .ulProjectAllocation li .detail-box h2 {
+            color: #11A18C;
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            padding-bottom: 0px;
+            padding-top: 3px;
+            margin: 0px;
+        }
+        .ulProjectAllocation li .detail-box .sub-detail-box-item {
+            border: 1px solid #eeeeee;
+            text-align: center;
+            font-size: 12px;
+        }
+
+            .ulProjectAllocation li .detail-box .sub-detail-box-item span {
+                font-weight: bold;
+            }
+.module-status{
+    display:block;
+}
+.module-status-set{
+    display:block;
+}
+.module-status-set a{
+   font-size:12px;
+}
+.module-desc{
+    margin:0px;
+}
+.parent-detail {
+    color:#a16011;
+    margin-bottom:10px;
+}
+.parent-detail span{
+    margin-right:8px;
+}
+    .parent-detail span::after {
+        content: '>';
+       font-weight:bold;
+        margin-left: 5px;
+
+    }
+    .parent-detail span:last-child::after {
+        content: '';
+    }

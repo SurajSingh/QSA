@@ -1,0 +1,50 @@
+﻿using BL.Master;
+using BLGeneral;
+using QuickStartAdmin.Classes;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
+using System.Linq;
+using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace QuickStartAdmin.Users
+{
+    public partial class RptTaskMasterFile : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (ClsLogin.ValidateRedirect((Int32)ClsRoles.UserRoles.TaskMasterFile, ""))
+            {
+                ((HiddenField)this.Master.FindControl("HidPageRoleID")).Value = ((Int32)ClsRoles.UserRoles.TaskMasterFile).ToString();
+                ((HiddenField)this.Master.FindControl("HidPageID")).Value = ((Int32)ClsPages.WebPages.TaskMasterFile).ToString();
+            }
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static string GetDepartment()
+        {
+            string result = "";
+            if (!ClsLogin.ValidateLogin() || !ClsLogin.ValidateRole((Int32)ClsRoles.UserRoles.TaskMasterFile, ClsRoles.IsView))
+            {
+
+                result = ClsLogin.GetErrorMsg("IO");
+            }
+            else
+            {
+                blMaster objda = new blMaster();
+                ClsGeneral objgen = new ClsGeneral();
+
+
+                DataSet ds = objda.GetDepartment(0, "", Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
+                result = objgen.SerializeToJSON(ds.Tables[0]);
+            }
+
+            return result;
+        }
+    }
+}

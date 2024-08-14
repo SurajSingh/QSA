@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[tblPartyMaster]
+(
+	PKID				Bigint NOT NULL,
+	Code                VARCHAR (50)  NULL,
+    Company             VARCHAR (200) NULL,
+    CPerson				Varchar(50),
+	CPersonTitle		Varchar(50),  
+    Address1			Varchar(200),
+	Address2			Varchar(200),
+	FKTahsilID			Bigint,	
+	FKCityID			Bigint,
+	FKStateID			Bigint, 
+	FKCountryID		    Bigint,
+	ZIP				    Varchar(10),
+    EMailID             VARCHAR (50)  NULL,
+    Phone1			    Varchar(15),
+	Phone2			    Varchar(15),
+    Mobile              VARCHAR (50)  NULL,
+    Fax                 VARCHAR (50)  NULL,
+    Website             VARCHAR (500) NULL,
+	Notes				NVarchar(500),
+	FKCompanyID         Bigint        Not NULL,
+	FKCreatedBy			Bigint,	
+	FKLastModifiedBy	Bigint,	
+	CreationDate		DateTime	Not Null,
+	ModificationDate	DateTime		
+)

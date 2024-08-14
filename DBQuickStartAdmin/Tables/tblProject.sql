@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[tblProject]
+(
+	PKID               BIGINT  Not Null,
+    FKClientID         Bigint,
+    ProjectCode        VARCHAR (50),
+    ProjectName        VARCHAR (500),
+    FKCompanyID        Bigint, 
+    FKManagerID        Bigint,  
+    FKContractTypeID    Bigint,
+    ProjectStatus      VARCHAR (50) ,
+    ContractAmt        DECIMAL (18, 4),
+    ExpAmt             DECIMAL (18, 4),
+    ServiceAmt         DECIMAL (18, 4),
+    BudgetedHours      Decimal(18,4),
+    Startdate          Date,
+    DueDate             Date ,
+    CompletePercent     DECIMAL (18, 4),  
+    PONo                VARCHAR (50) ,
+    Remark              NVARCHAR (500),                
+    FKCreatedBy			Bigint,	
+	FKLastModifiedBy	Bigint,	
+	CreationDate		DateTime	Not Null,
+	ModificationDate	DateTime,	
+    BStatus             BIT   Default 1,
+    BillPerCycle      	DECIMAL (18, 4)
+)

@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[tblUser]
+	ADD CONSTRAINT [PK_tblUser]
+	PRIMARY KEY (PKUserID)

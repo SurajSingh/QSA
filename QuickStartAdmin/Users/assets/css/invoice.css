@@ -1,0 +1,47 @@
+﻿.leftsummarybox {
+    background: #26aa98;
+   
+   
+}
+    .leftsummarybox .card-title {
+        padding: 10px;
+        color: #ffffff;
+        background: #1f9787;
+
+    }
+    .leftsummarybox .project-title {
+        padding:5px 10px;
+        color: #ffffff;       
+    }
+.leftsummarybox-inner {
+    padding: 5px;
+    min-height:450px;
+    
+}
+.leftsummarybox .accordion-button {
+    padding: 1rem .8rem;
+    color: #1f9787;
+}
+.leftsummarybox .accordion-button span{
+   font-size:.8rem;
+}
+.leftsummarybox .accordion-body {
+    padding:10px 0px;
+}
+.invoice-txtbox ul {
+    list-style-type: none;
+    margin: 0px;
+    padding-left: .8rem;
+    padding-right: .8rem;
+}
+    .invoice-txtbox ul li {
+        list-style-type: none;
+        line-height: 24px;
+    }
+    .invoice-txtbox ul li span {
+        float: right;
+        font-weight: 500;
+    }
+.leftsummarybox .treecombo {
+   color:#ffffff;
+}

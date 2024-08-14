@@ -1,0 +1,24 @@
+﻿
+.dashboardlinks .linkdesc  {
+   
+    line-height: 20px;
+  
+}
+
+.dashboardlinks .linkdesc a{  
+    font-size:13px;
+}
+.dashboardlinks i {
+    font-size: 28px;
+    color: #5b73e8;
+}
+.dashboardlinks h4 span {
+    
+}
+.chartloader {
+    width: 100%;
+    min-height: 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(/Users/images/smallLoader.gif);
+}

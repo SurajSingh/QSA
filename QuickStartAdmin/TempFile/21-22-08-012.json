@@ -1,0 +1,57 @@
+{
+  "version": "1.0.1118",
+  "BillList": [
+    {
+      "userGstin": "",
+      "subSupplyType": "1",
+      "subSupplyDesc": "",
+      "docType": "INV",
+      "docNo": "21-22-08/012",
+      "docDate": "04/08/2021",
+      "transType": "1",
+      "fromGstin": "",
+      "fromTrdName": "ABC Company",
+      "fromAddr1": "E-475, First Floor, Behind Vidhan Sabha",
+      "fromAddr2": "Lal Kothi Scheme",
+      "fromPlace": "Jaipur",
+      "fromPincode": "302015",
+      "fromStateCode": "8",
+      "actualFromStateCode": "8",
+      "toGstin": "",
+      "toTrdName": "Customer 100",
+      "toAddr1": "",
+      "toAddr2": "",
+      "toPlace": "",
+      "toPincode": "",
+      "toStateCode": "",
+      "actualToStateCode": "",
+      "totalValue": 11.2000,
+      "cgstValue": 0.6000,
+      "sgstValue": 0.6000,
+      "igstValue": 0.0000,
+      "cessValue": 0.0000,
+      "TotNonAdvolVal": 0.0,
+      "OthValue": 0.0000,
+      "totInvValue": 11.2000,
+      "transMode": 0,
+      "transDistance": 0.0,
+      "mainHsnCode": "",
+      "ItemList": [
+        {
+          "itemNo": 1,
+          "productName": " Gar-nd-867",
+          "productDesc": "DRESS",
+          "hsnCode": "6204",
+          "quantity": 1.0000,
+          "qtyUnit": "PCS",
+          "taxableAmount": 10.0000,
+          "sgstRate": 6.0000,
+          "cgstRate": 6.0000,
+          "igstRate": 0.0,
+          "cessRate": 0.0,
+          "cessNonAdvol": 0.0
+        }
+      ]
+    }
+  ]
+}

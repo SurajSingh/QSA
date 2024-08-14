@@ -1,0 +1,216 @@
+﻿namespace BLGeneral
+{
+    public static class ClsPages
+    {
+        public enum WebPages
+        {
+            Dashboard = 100,
+            CompanySettings = 1000,
+            ProfilePicture = 1001,
+            CompanyInformation = 1002,
+            EmailSettings = 1003,
+            PaymentTerms = 1004,
+            BillingSettings = 1005,
+            InvoiceTemplate = 1006,
+            InvoiceEmailTemplate = 1007,
+            SchedulingEmailReceivers = 1008,
+            LeaveRequestEmailReceivers = 1009,
+            AttandenceMachineSettings = 1010,
+            Announcements = 1011,
+
+            Appointments = 1020,
+            ViewAppointments = 1021,
+            ScheduleAvailability = 1022,
+            AssetManagement = 1030,
+            TransferAsset = 1031,
+            AssetCategory = 1032,
+            AssetMaster = 1033,
+            VendorMaster = 1034,
+            DocumentManagement = 1050,
+            FileManager = 1051,
+            FileSharing = 1052,
+            FileCategories = 1053,
+           
+            Billing = 1070,
+            CreateInvoice = 1071,           
+            InvoiceList = 1072,
+            ReceivePayment = 1073,
+            PaymentReview = 1074,
+            TransactionStatements = 1075,
+            //Added by NIelsh to add new menus -start 09_10_23
+            TrashInvoices = 1076,
+            //DeletedInvoiceList = 107601,
+            ArchiveInvoices = 1077,
+            //Added by NIelsh to add new menus -End 09_10_23
+
+            Groups = 1100,
+            EmployeeGroups = 1101,
+            ClientGroups = 1102,
+            ProjectGroups = 1103,
+            ExpenseGroups = 1104,
+           
+            LeaveManagement = 1120,
+            LeaveRequest = 1121,
+            ApproveLeaveRequest = 1122,
+            IssueLeave = 1123,
+            HolidayCalendar = 1124,
+            LeaveSettings = 1125,
+
+            ProjectManagement = 1160,
+            ProjectForecasting = 1161,
+            ProjectAllocation = 1162,
+            ProjectBudgeting = 1163,
+            TaxClientSetup = 1164,
+            TaxClientLog = 1165,
+            TaxMasterFile = 1166,
+
+            Schedule = 1191,
+
+            Timesheet = 1200,
+
+           
+
+
+            EnterTimeSheet = 1201,           
+            EmployeeTaskAssignment = 1203,
+            EmployeeExpenseEntry = 1204,
+
+            Manage = 1250,
+            Employees = 1251,
+            Projects = 1252,
+            Clients = 1253,
+            ClientAddressMap = 1254,
+            TaskCodes = 1255,
+            ExpenseCodes = 1256,
+            Departments = 1257,
+            Designations = 1258,
+            TaxMaster = 1259,
+            InformationTypeMaster = 1260,
+
+            Reports = 1300,
+            AgingReport = 1301,
+            Analysis = 1302,
+            AssetReport = 1303,
+            BillingReport = 1304,
+            BudgetReport = 1305,
+            ClientReport = 1306,
+            ClientScheduleReport = 1307,
+            EmployeeReport = 1308,
+            LeaveReport = 1309,
+            ProjectReport = 1310,
+            TaskReport = 1311,
+            TimesheetReport = 1312,
+            AgingReport90Days = 130101,
+            AgingSummaryReport = 130102,
+            AgingwithClientAddress = 130103,
+            AgingSummarywithCredit = 130104,
+            AHoursBHoursComparisonbyEmployee = 130201,
+            AHoursBHoursComparisonbyProject = 130202,
+            ProjectAnalysisReport = 130203,
+            ChartReport = 130204,
+            AssetReportByDepartment = 130301,
+            AssetReportByEmployee = 130302,
+            AssetReportByLocation = 130303,
+            AssetReportByCondition = 130304,
+            AssetReportByCategory = 130305,
+            ApprovedTimeandExpenseswithMemos = 130401,
+            InvoiceRegister = 130402,
+            InvoiceRegisterwithCosts = 130403,
+            BillingStatementbyClient = 130404,
+            BillingStatementbyProject = 130405,
+            PercentageBilled = 130406,
+            EmployeeDefaultBillRates = 130407,
+            BilledTimeandExpensesDetailbyProjectEmplo = 130408,
+            UnBilledTimeandExpensesDetailbyProjectEm = 130409,
+            BudgetSummaryReport = 130501,
+            BudgetDetailbyProjectEmployee = 130502,
+            ClientMasterFileList = 130601,
+            ClientMasterFileDetails = 130602,
+            ExpensesbyClient = 130603,
+            ExpensesbyItem = 130604,
+            InvoiceRegisterbyClient = 130605,
+            MonthlyBillingSummarybyClient = 130606,
+            TimeExpensesDetailbyClientProject = 130607,
+            TimeExpensebyClientProjectandEmployee = 130608,
+            TimeExpensesSummarybyClient = 130609,
+            ClientEmployeeandTimeMetrix = 130610,
+            EmployeeClientandTimeMetrix = 130611,
+            ScheduleReportbyClient = 130701,
+            ScheduleReportbyEmployeeClient = 130702,
+            ScheduleSummaryReport = 130703,
+            PerformanceReport = 130801,
+            EmployeeExpensesbyItem = 130802,
+            EmployeeExpensesReport = 130803,
+            CumulativeReport = 130804,
+            EmployeeLeaveRegister = 130901,
+            EmployeeLeaveSummary = 130902,
+            ProjectMaster = 131001,
+            ProjectForecastingReport = 131002,
+            ProjectAllocationReport = 131003,
+            ProjectBreakdownSummary = 131004,
+            BudgetedTaskReport = 131101,
+            AssignedTaskReport = 131102,
+            TaskMasterFile = 131103,
+            ExpensesCodeMasterFile = 131104,
+            AnalysisbyProjectEmployeeTask = 131105,
+            AnalysisbyProjectTaskEmployee = 131106,
+            AnalysisbyEmployeeTask = 131107,
+            GroupedActivityCodeMasterFile = 131108,
+            TaskSummary = 131109,
+            ExpensesSummary = 131110,
+            EmployeeTimesheet = 131201,
+            TimeSummarybyEmployee = 131202
+
+        }
+
+
+        public enum Transaction
+        {
+            PurchaseInvoice = 1,
+            PurchaseOrder = 2,
+            PurchaseChallan = 3,
+            PurchaseCRNote = 4,
+            PurchaseDebitNote = 5,
+            PurchaseReturn = 6,
+            SalesInvoice = 7,
+            SalesOrder = 8,
+            SalesChallan = 9,
+            SalesCRNote = 10,
+            SalesDebitNote = 11,
+            SalesReturn = 12,
+            LocationTransfer = 13,
+            Payment = 14,
+            Receipt = 15,
+            JobOrder = 16,
+            JobOrderIssueItem = 17,
+            JobOrderReceiveItem = 18,
+            JobOrderMoveItem = 19,
+            JobOrderConsumeItemEntry = 20,
+            PackingSlip = 21,
+            BranchTransfer = 22,
+            WebOrder = 23,
+            BranchTransferReceive = 24,
+            LocationTransferReceive = 25,
+            VoucherEntry = 26,
+            ProformaInvoice = 27,
+            StockIn = 28,
+            KOT = 29,
+            ApproveJobOrderFee=30,
+            ConsumeItem=31,
+            DisposeItem = 32
+
+
+        }
+        public enum SMSEmailLocation
+        {
+            Invoice = 1,
+            Scheduling = 2,
+            LeaveRequest = 3,
+            Appointment =4
+
+
+
+        }
+
+    }
+}

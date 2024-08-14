@@ -1,0 +1,306 @@
+﻿.card{
+    margin-top:10px;
+}
+.chartloader {
+    width: 100%;
+    min-height: 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(/Users/images/smallLoader.gif);
+}
+
+.tblJobOrderItem {
+    width: 100%;
+}
+
+    .tblJobOrderItem th {
+        padding-top: 5px;
+        padding-bottom: 0px;
+    }
+
+    .tblJobOrderItem td {
+        padding-top: 0px;
+        border-bottom: dashed 1px #e0e0e0;
+        padding: 2px 5px;
+    }
+    .tblJobOrderItem .btn {
+        
+        margin-right: 0px;
+        padding: 4px 5px;
+        margin:0px 10px 0px 0px;
+    }
+
+    .tblJobOrderItem tr:last-child td {
+        border-bottom: none;
+    }
+
+.tdjobid {
+    color: #e99525;
+}
+
+    .tdjobid a {
+        color: #e99525;
+        text-decoration: underline;
+    }
+
+.tblJobOrderItem td span.fqty {
+    color: #31746d;
+    margin-right: 20px;
+    display: inline-block;
+    min-width: 217px;
+}
+
+.tblJobOrderItem td span.wipqty {
+    color: #54b41a;
+    display: inline-block;
+}
+
+.tblJobOrderItem td span i {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.tblJobOrderItem span {
+    margin-right: 10px;
+}
+
+span.itemcode {
+    color: #808080;
+    min-width: 138px;
+    display: inline-block;
+}
+span.dimension {
+    color: #1f97e3;
+}
+
+.tblwipitem {
+    width: 100%;
+}
+
+    .tblwipitem th {
+        padding: 5px;
+        white-space:nowrap;
+    }
+
+    .tblwipitem .fa-arrow-right {
+        color: #4076b6;
+        margin-right: 10px;
+    }
+
+    .tblwipitem .tdoperation {
+        color: #54b41a;
+    }
+
+.tblOperationHistory {
+    width: 100%;
+}
+
+    .tblOperationHistory thead th {
+        border-bottom: solid 3px #e0e0e0;
+    }
+
+    .tblOperationHistory td {
+        vertical-align: top;
+        border-bottom: dashed 1px #808080;
+        padding: 5px 0px;
+    }
+    .tblOperationHistory .tdicon {
+       width:80px;
+    }
+
+        .tblOperationHistory td.tddate {
+            font-weight: bold;
+            color: #1a4f8f;
+        }
+
+    .tblOperationHistory ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .tblOperationHistory ul li {
+            list-style-type: none;
+        }
+
+    .tblOperationHistory .assign {
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 10px;
+        color: #ef8157;
+        min-width: 100px;
+        text-transform: uppercase;
+    }
+
+    .tblOperationHistory td.tdStatus {
+        font-weight: bold;
+    }
+
+    .tblOperationHistory .color-open {
+        color: #54b41a;
+    }
+
+    .tblOperationHistory .color-close {
+        color: #e80707;
+    }
+
+    .tblOperationHistory .move {
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 10px;
+        color: #54b41a;
+        min-width: 100px;
+        text-transform: uppercase;
+    }
+
+    .tblOperationHistory .item {
+        display: inline-block;
+        margin-right: 10px;
+        min-width: 200px;
+    }
+
+    .tblOperationHistory .itemcode {
+        min-width: initial;
+    }
+
+    .tblOperationHistory .qty {
+       
+       width:100px;
+        color: #888888;
+    }
+    .tblOperationHistory .trnoborder .tdjobid {
+        border-bottom: none;
+    }
+    .tblOperationHistory .trnoborder .tddate {
+        border-bottom: none;
+    }
+    .tblOperationHistory .trborder .tdjobid {
+        border-bottom: none;
+        border-top: dashed 1px #808080;
+    }
+
+    .tblOperationHistory .trborder .tddate {
+        border-bottom: none;
+        border-top: dashed 1px #808080;
+    }
+    .tblOperationHistory .trborder:first-child td {
+        border-top: none !important;
+    }
+.wipfrom {
+    display: inline-block;
+    margin-left: 10px;
+    color: #928c1a;
+    font-weight: bold;
+}
+
+.wipto {
+    display: inline-block;
+    margin-left: 10px;
+    color: #1a4f8f;
+    font-weight: bold;
+}
+
+.tblOperationHistory .wipteam {
+    color: #ef8157;
+    font-size: 11px;
+}
+
+.tblOperationHistory .receive {
+    display: inline-block;
+    margin-right: 20px;
+    color: #2567dd;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tblOperationHistory .operationfrom {
+    display: inline-block;
+    margin-right: 20px;
+    min-width: 250px;
+}
+
+.tblOperationHistory .itemcode {
+    color: #808080;
+}
+
+.tblData {
+    width: 100%;
+    text-align: left;
+}
+
+
+
+    .tblData td {
+        padding: 5px;
+        border: none;
+        border-bottom: dashed 1px #e0e0e0;
+        font-size: 12px;
+    }
+
+    .tblData .special {
+        font-weight: bold;
+        color: #453f3f;
+    }
+    .tblData.tblRecent td {
+        
+        font-size: 13px;
+    }
+        .tblData.tblRecent td.tdjobid a {
+            font-family: "Segoe UI Bold";
+        }
+    .tblData.tblRecent .special {
+        font-family: "Segoe UI Bold";
+        font-weight: normal;
+    }
+.taskrounbd{
+    text-align:center;
+}
+.taskrounbd div{
+    text-align: center;
+    margin-top:20px;
+}
+    .taskrounbd figure {
+        border: 5px solid #1caf9a;
+        border-radius: 100px;
+        color: #000;
+        display: block;
+        font-family: "Segoe UI Bold";
+        font-size: 14px;
+        height: 70px;
+        margin: 0 auto 10px;
+        padding: 17px 0 0;
+        text-align: center;
+        width: 70px;
+    }
+    .taskrounbd div h2 {
+        color: #000 !important;
+        border: none;
+    }
+    .taskrounbd .cashsales figure {
+        border-color: #5db95d;
+    }
+    .taskrounbd .creditsales figure {
+        border-color: #d65753;
+    }
+    .taskrounbd .receipts figure {
+        border-color: #4076b6;
+    }
+    .taskrounbd .payments figure {
+        border-color: #edb053;
+    }
+.btnRight{
+    float:right;
+}
+    .btnRight .btn {
+        float: right;
+        margin: 0px 0px 0px 5px;
+        padding: 5px;
+    }
+.divtable .card-title  {
+    padding: 0px;
+   
+}
+.divtable .card-title h5 {
+    padding: 0px;
+    margin:0px;
+    font-weight: 600;
+}

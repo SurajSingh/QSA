@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[tblPage]
+	ADD CONSTRAINT [PK_tblPage]
+	PRIMARY KEY (PKID)

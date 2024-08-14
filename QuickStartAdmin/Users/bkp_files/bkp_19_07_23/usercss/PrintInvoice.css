@@ -1,0 +1,11 @@
+﻿body {
+    margin:0px;
+    padding:0px;
+}
+.divmain {
+    width: 715px;
+    margin: 0px auto;
+    padding: 10px 0px;
+    background: #ffffff;
+    max-width:100%;
+}

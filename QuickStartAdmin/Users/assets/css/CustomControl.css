@@ -1,0 +1,182 @@
+﻿.treeSearchCtrl {
+    background-image: url(/Users/images/arrow_down.png);
+    background-repeat: no-repeat;
+    background-position: 99% center;
+    cursor: pointer;
+}
+   
+    .treeSearchCtrl.showclildname {
+        background-image: url(/Users/images/folder-icon.png), url(/Users/images/arrow_down.png);
+        background-repeat: no-repeat;
+        background-position: 5px center,99% center;
+        padding-left: 28px;
+       
+    }
+    .treecombo {
+        width: 100%;
+        padding: 10px;
+        font-size: 13px;
+        border: solid 1px #cccccc;
+        height: 300px;
+        overflow: auto;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    }
+.treecombo.simple{
+    border:none;
+    box-shadow:none;
+    max-height:400px;
+    width:100%;
+    overflow:auto;
+    padding:0px;
+    height:auto;
+}
+.treecombo-select {
+   border-radius:0 !important;
+   margin-top:0px !important;
+  
+}
+
+    .treecombo-select.show {
+        display: block;
+    }
+
+.treecombo .rootul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+    .treecombo .rootul li {
+        list-style-type: none;
+        cursor: pointer;
+    }
+ .genex-list-move li {
+   
+    cursor: move;
+}
+.treecombo .rootul li span.tree-content {
+    display: table-cell;
+    padding: 3px 5px;
+    max-width: 200px;
+}
+
+            .treecombo .rootul li span.tree-content:hover {
+                background-color: #e99525;
+                color: #ffffff;
+            }
+
+            .treecombo .rootul li span.tree-content.selectednode {
+                background-color: #e99525;
+                color: #ffffff;
+            }
+
+        .treecombo .rootul li span.tree-node-nochild {
+            display: table-cell;
+            background-image: url(/Users/images/folder-icon.png);
+            background-repeat: no-repeat;
+            background-position: 0px center;
+            width: 16px;
+            height: 13px;
+        }
+
+        /* Style the caret/arrow */
+        .treecombo .rootul li span.tree-node {
+            cursor: pointer;
+            user-select: none; /* Prevent text selection */
+            background-image: url(/Users/images/folder-icon-close.png);
+        }
+.treecombo .rootul li span.tree-node-nochild.tree-node-task {
+    background-image: url(/Users/images/folder-icon-t.png);
+}
+
+        /* Create the caret/arrow with a unicode, and style it */
+
+
+        /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+        .treecombo .rootul li span.tree-node-down {
+            background-image: url(/Users/images/folder-icon-open.png);
+        }
+
+    /* Hide the nested list */
+    .treecombo .rootul .nested {
+        display: none;
+    }
+
+    /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+    .treecombo .rootul .active {
+        display: block;
+    }
+.genex-multiselect-box-parent{
+    position:relative;
+}
+.genex-multiselect-box {
+    height: auto;
+    max-height: 95px;
+    overflow: auto;
+    min-height: 39px;
+}
+.genex-multiselect-box span {
+   background:#0094ff;
+   color:#ffffff;
+   border-radius:3px;
+   padding:2px;
+   display:inline-block;
+   float:left;
+   margin-right:5px;
+   margin-bottom:2px;
+   
+}
+    .genex-multiselect-box span label{
+       
+        color: #ffffff;
+      margin:0px;
+    }
+    .genex-multiselect-box span i {
+        float: right;
+        display: block;
+        margin-left: 3px;
+        color: #ffffff;
+        margin-top: 5px;
+        font-size: 12px;
+        cursor:pointer;
+    }
+.genex-multiselect-container {
+    width: 100%;
+    padding: 5px;
+    font-size: 13px;
+    border: solid 1px #cccccc;
+    z-index: 1002;
+    border-radius: 3px;
+    margin-top: 2px;
+  
+    box-shadow: 3px 3px 6px rgb(0 0 0 / 16%);
+}
+    .genex-multiselect-container ul {
+        list-style-type: none;
+        margin: 0px !important;
+        margin-top: 10px !important;
+        padding: 0px;
+        max-height: 300px;
+        overflow: auto;
+    }
+    .genex-multiselect-container ul li{
+        list-style-type: none;
+        margin:0px 0px 5px 0px !important;
+        padding:0px 5px;       
+        width:100%;
+    }
+        .genex-multiselect-container ul li .checkbox {
+           margin-bottom:0px;
+        }
+
+    .genex-multiselect-container .form-control {
+       height:25px;
+       border-radius:10px;
+       background:#f0f0f0;
+    }

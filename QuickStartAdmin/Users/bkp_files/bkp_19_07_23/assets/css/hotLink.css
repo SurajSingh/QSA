@@ -1,0 +1,19 @@
+﻿
+.main-panel {
+    padding: 0px 0px;
+    width:100%;
+    margin:0px;
+}
+
+#page-topbar {
+    display: none !important;
+}
+.page-content {
+    padding: 0px !important;
+}
+.footer {
+    display: none !important;
+}
+.page-title-box {
+    display: none !important;
+}

@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[tblAsset]
+	ADD CONSTRAINT [PK_tblAsset]
+	PRIMARY KEY (PKID)

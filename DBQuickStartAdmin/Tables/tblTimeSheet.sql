@@ -1,0 +1,31 @@
+﻿CREATE TABLE [dbo].[tblTimeSheet]
+(
+	 PKID                   BIGINT          NOT NULL,
+     TaskDate               Date            Not NULL,
+     FKTaskID               Bigint,
+     FKEmpID                Bigint, 
+     FKProjectID            Bigint, 
+     Hrs                    DECIMAL (18,2),
+     Description            NVARCHAR (2000),
+     IsBillable             BIT,
+     Memo                   NVARCHAR (4000) ,
+     TBHours                DECIMAL (18,2),
+     TCostRate              DECIMAL (18, 4),
+     TBillRate              DECIMAL (18, 4),
+     FKAssignLogID          Bigint, 
+     FKSubmitToID           Bigint, 
+     ApproveStatus          Varchar(50) Default 'Pending',
+     TaskStatus             Varchar(50) Default '',
+     FKApproveByID          Bigint, 
+     ApproveDate            DateTime,
+     ApproveRemark          NVarchar(2000),
+     IsBilled               Bit Default 0,
+     FKInvoiceID            Bigint,
+     FKCompanyID		    Bigint, 
+     FKCreatedBy		    Bigint,	
+	 FKLastModifiedBy       Bigint,	
+	 CreationDate	        DateTime,
+	 ModificationDate       DateTime,		
+     BStatus                BIT   Default 1
+
+)

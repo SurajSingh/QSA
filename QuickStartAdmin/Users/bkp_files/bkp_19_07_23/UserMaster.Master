@@ -1,0 +1,536 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserMaster.master.cs" Inherits="QuickStartAdmin.Users.UserMaster" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>QuickstartAdmin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/Users/assets/images/favicon.ico">
+    <link href="/Users/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <!-- DataTables -->
+    <link href="/Users/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Users/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="/Users/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap Css -->
+    <link href="/Users/assets/css/bootstrap.min.css" id="bootstrapstyle" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="/Users/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/Users/assets/css/app.min.css?v=28112022" id="appstyle" rel="stylesheet" type="text/css" />
+    <link href="/Users/assets/css/jquery-ui.css?v=28112022" rel="stylesheet" />
+    <link href="/Users/assets/css/nr-css.css?v=28112022" rel="stylesheet" type="text/css" />
+    <link href="/Users/assets/css/CustomDataTable.css?v=28112022" rel="stylesheet" />
+    <link href="/Users/assets/css/CustomControl.css" rel="stylesheet" />
+    <link href="/Users/assets/css/jquery.timepicker.min.css" rel="stylesheet" />
+
+    <script src="/Users/assets/libs/jquery/jquery.min.js"></script>
+    <script src="/Users/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/Users/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="/Users/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/Users/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/Users/assets/js/jquery-ui.min.js"></script>
+    <script src="/Users/assets/js/jquery.ui.autocomplete.html.js"></script>
+    <script src="/Users/assets/js/jquery.timepicker.min.js" type="text/javascript"></script>
+    <script src="/Users/assets/js/jquery.mask.min.js" type="text/javascript"></script>
+
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+
+    <script src="/Users/assets/js/CustomComboBox.js?version=14082022"></script>
+
+    <script src="/Users/assets/js/jquery.floatThead.min.js"></script>
+     <script src="/Users/assets/js/xlsx.full.min.js"></script>
+    <script src="/Users/MasterJs/GenexDataTable.js?v=28112022"></script>
+    <script src="/Users/MasterJs/MasterPage.js?v=28112022"></script>
+    <script src="/Users/MasterJs/Rolejs.js?v=28112022"></script>
+    <script src="/Users/MasterJs/MasterAPI.js?v=28112022"></script>
+    <script src="/Users/assets/js/themejs.js?v=28112022"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="otherdiv" id="otherdiv" style="display: none;"></div>
+        <div id="divloader" class="progressdiv" style="display: none;">
+        </div>
+        <div class="divalert" id="divalert" style="z-index: 9999999;">
+            <a class="divalert-close" onclick="CloseAlert();">
+                <img src="images/cancel.png" /></a>
+            <div class="clear"></div>
+            <div class="divalert-text" id="alerttext"></div>
+            <div class="divalert-bottom">
+                <input id="btnAlertOK" type="button" value="OK" onclick="CloseAlert();" class="divalert-ok btn btn-success waves-effect waves-light" />
+            </div>
+        </div>
+        <div id="divalertback" class="otherdiv" onclick="CloseAlert();" style="z-index: 999999;"></div>
+        <asp:HiddenField ID="HidTranTypeID" runat="server" ClientIDMode="Static" Value="0" />
+        <asp:HiddenField ID="HidPageRoleID" runat="server" ClientIDMode="Static" Value="0" />
+        <asp:HiddenField ID="HidHotLink" runat="server" ClientIDMode="Static" Value="0" />
+        <asp:HiddenField ID="HidPageID" runat="server" ClientIDMode="Static" Value="0" />
+        <asp:HiddenField ID="HidPageName" runat="server" ClientIDMode="Static" Value="Data List" />
+        <asp:HiddenField ID="HidDateFormat" runat="server" ClientIDMode="Static" Value="dd/MM/yyyy" />
+        <asp:HiddenField ID="HidCurrencyName" runat="server" ClientIDMode="Static" Value="Rs." />
+        <asp:HiddenField ID="hidCurrencyID" runat="server" ClientIDMode="Static" Value="1" />
+        <asp:HiddenField ID="HidUserID" runat="server" ClientIDMode="Static" Value="0" />
+        <asp:HiddenField ID="HidWebURL" runat="server" ClientIDMode="Static" Value="" />
+        <asp:HiddenField ID="HidVersionNo" runat="server" ClientIDMode="Static" Value="10082021" />
+
+
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="/Users/Dashboard.aspx" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="/Users/assets/images/logo-sm.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="/Users/assets/images/logo-dark.png" alt="" height="40">
+                                </span>
+                            </a>
+
+                            <a href="Dashboard.aspx" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="/Users/assets/images/logo-sm.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="/Users/assets/images/logo-light.png" alt="" height="40">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+
+                        <!-- App Search-->
+                        <div class="app-search d-none d-lg-block">
+                            <div class="position-relative">
+                                <input id="txtSearchPage" type="text" class="form-control" placeholder="Search..." />
+                                <span class="uil-search"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-inline-block d-lg-none ms-2">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="uil-search"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                aria-labelledby="page-header-search-dropdown">
+
+                                <div class="p-3">
+                                    <div class="m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                            <div class="input-group-append">
+                                                <a class="btn btn-primary"><i class="mdi mdi-magnify"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <%-- <div class="dropdown d-inline-block language-switch">
+                            <button type="button" class="btn header-item waves-effect"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="/Users/assets/images/flags/us.jpg" alt="Header Language" height="16">
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <img src="/Users/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12">
+                                    <span class="align-middle">Spanish</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <img src="/Users/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12">
+                                    <span class="align-middle">German</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <img src="/Users/assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12">
+                                    <span class="align-middle">Italian</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <img src="/Users/assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12">
+                                    <span class="align-middle">Russian</span>
+                                </a>
+                            </div>
+                        </div>--%>
+
+                        <%--  <div class="dropdown d-none d-lg-inline-block ms-1">
+                            <button type="button" class="btn header-item noti-icon waves-effect"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="uil-apps"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                                <div class="px-lg-2">
+                                    <div class="row g-0">
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/Users/assets/images/brands/github.png" alt="Github">
+                                                <span>GitHub</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/Users/assets/images/brands/bitbucket.png" alt="bitbucket">
+                                                <span>Bitbucket</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/Users/assets/images/brands/dribbble.png" alt="dribbble">
+                                                <span>Dribbble</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-0">
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/Users/assets/images/brands/dropbox.png" alt="dropbox">
+                                                <span>Dropbox</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/Users/assets/images/brands/mail_chimp.png" alt="mail_chimp">
+                                                <span>Mail Chimp</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/Users/assets/images/brands/slack.png" alt="slack">
+                                                <span>Slack</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>--%>
+
+                        <div class="dropdown d-none d-lg-inline-block ms-1">
+                            <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                                <i class="uil-minus-path"></i>
+                            </button>
+                        </div>
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-announcement-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="uil-volume"></i>
+                                <span class="badge bg-danger rounded-pill" id="spanannouncecount"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                aria-labelledby="page-header-announcement-dropdown">
+                                <div class="p-3">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h5 class="m-0 font-size-16">Announcements </h5>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="divAnnounceNotification" data-simplebar style="max-height: 230px;overflow:auto;">
+                                </div>
+                                <div class="p-2 border-top">
+                                    <div class="d-grid">
+                                        <a id="announcenotiviewmore" class="btn btn-sm btn-link font-size-14 text-center" href="Announcements.aspx">
+                                            <i class="uil-arrow-circle-right me-1"></i>View More..
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="uil-bell"></i>
+                                <span class="badge bg-danger rounded-pill" id="divScheduleNotificationCount"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                aria-labelledby="page-header-notifications-dropdown">
+                                <div class="p-3">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h5 class="m-0 font-size-16">Client Schedule Notification </h5>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div data-simplebar style="max-height: 230px;overflow:auto;" id="divScheduleNotification">
+                                    
+                                </div>
+                                <div class="p-2 border-top">
+                                    <div class="d-grid">
+                                        <a class="btn btn-sm btn-link font-size-14 text-center" href="Schedule.aspx" id="Schedulenotiviewmore">
+                                            <i class="uil-arrow-circle-right me-1"></i>View More..
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="<%=strProfilePic %>"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15"><%=strUserName %></span>
+                                <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <a class="dropdown-item" href="Profile.aspx"><i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i><span class="align-middle">Profile</span></a>
+                                <a href="Logout.aspx" class="dropdown-item" id="linkLogout"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i><span class="align-middle">Sign out</span></a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </header>
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <!-- LOGO -->
+                <div class="navbar-brand-box">
+                    <a href="Dashboard.aspx" class="logo logo-dark">
+                        <span class="logo-sm">
+                            <img src="/Users/assets/images/logo-sm.png" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="/Users/assets/images/logo-dark.png" alt="" height="40">
+                        </span>
+                    </a>
+
+                    <a href="Dashboard.aspx" class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="/Users/assets/images/logo-sm.png" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="/Users/assets/images/logo-light.png" alt="" height="40">
+                        </span>
+                    </a>
+                </div>
+
+                <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                    <i class="fa fa-fw fa-bars"></i>
+                </button>
+
+                <div data-simplebar class="sidebar-menu-scroll">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+
+                        <ul class="metismenu list-unstyled" id="side-menu">
+
+                            <li class="menu-title">Menu</li>
+                            <asp:Literal ID="litMenu" runat="server"></asp:Literal>
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script>
+                                © QuickstartAdmin.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+
+
+        <!-- Right Sidebar -->
+        <div class="right-bar">
+            <div data-simplebar class="h-100">
+                <div class="rightbar-title d-flex align-items-center p-3">
+
+                    <h5 class="m-0 me-2">Settings</h5>
+
+                    <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                        <i class="mdi mdi-close noti-icon"></i>
+                    </a>
+                </div>
+
+                <!-- Settings -->
+                <hr class="m-0" />
+
+                <div class="p-4">
+                    <h6 class="mb-3">Layout</h6>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout"
+                            id="layout-vertical" value="vertical">
+                        <label class="form-check-label" for="layout-vertical">Vertical</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout"
+                            id="layout-horizontal" value="horizontal">
+                        <label class="form-check-label" for="layout-horizontal">Horizontal</label>
+                    </div>
+
+                    <h6 class="mt-4 mb-3 pt-2">Layout Mode</h6>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout-mode"
+                            id="layout-mode-light" value="light">
+                        <label class="form-check-label" for="layout-mode-light">Light</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout-mode"
+                            id="layout-mode-dark" value="dark">
+                        <label class="form-check-label" for="layout-mode-dark">Dark</label>
+                    </div>
+
+                    <h6 class="mt-4 mb-3 pt-2">Layout Width</h6>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout-width"
+                            id="layout-width-fuild" value="fuild" onchange="document.body.setAttribute('data-layout-size', 'fluid')">
+                        <label class="form-check-label" for="layout-width-fuild">Fluid</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout-width"
+                            id="layout-width-boxed" value="boxed" onchange="document.body.setAttribute('data-layout-size', 'boxed')">
+                        <label class="form-check-label" for="layout-width-boxed">Boxed</label>
+                    </div>
+
+                    <h6 class="mt-4 mb-3 pt-2">Layout Position</h6>
+
+                    <h6 class="mt-4 mb-3 pt-2">Topbar Color</h6>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="topbar-color"
+                            id="topbar-color-light" value="light" onchange="document.body.setAttribute('data-topbar', 'light')">
+                        <label class="form-check-label" for="topbar-color-light">Light</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="topbar-color"
+                            id="topbar-color-dark" value="dark" onchange="document.body.setAttribute('data-topbar', 'dark')">
+                        <label class="form-check-label" for="topbar-color-dark">Dark</label>
+                    </div>
+
+                    <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Size</h6>
+
+                    <div class="form-check sidebar-setting">
+                        <input class="form-check-input" type="radio" name="sidebar-size"
+                            id="sidebar-size-default" value="default" onchange="document.body.setAttribute('data-sidebar-size', 'lg')">
+                        <label class="form-check-label" for="sidebar-size-default">Default</label>
+                    </div>
+                    <div class="form-check sidebar-setting">
+                        <input class="form-check-input" type="radio" name="sidebar-size"
+                            id="sidebar-size-compact" value="compact" onchange="document.body.setAttribute('data-sidebar-size', 'small')">
+                        <label class="form-check-label" for="sidebar-size-compact">Compact</label>
+                    </div>
+                    <div class="form-check sidebar-setting">
+                        <input class="form-check-input" type="radio" name="sidebar-size"
+                            id="sidebar-size-small" value="small" onchange="document.body.setAttribute('data-sidebar-size', 'sm')">
+                        <label class="form-check-label" for="sidebar-size-small">Small (Icon View)</label>
+                    </div>
+
+                    <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Color</h6>
+
+                    <div class="form-check sidebar-setting">
+                        <input class="form-check-input" type="radio" name="sidebar-color"
+                            id="sidebar-color-light" value="light" onchange="document.body.setAttribute('data-sidebar', 'light')">
+                        <label class="form-check-label" for="sidebar-color-light">Light</label>
+                    </div>
+                    <div class="form-check sidebar-setting">
+                        <input class="form-check-input" type="radio" name="sidebar-color"
+                            id="sidebar-color-dark" value="dark" onchange="document.body.setAttribute('data-sidebar', 'dark')">
+                        <label class="form-check-label" for="sidebar-color-dark">Dark</label>
+                    </div>
+                    <div class="form-check sidebar-setting">
+                        <input class="form-check-input" type="radio" name="sidebar-color"
+                            id="sidebar-color-colored" value="colored" onchange="document.body.setAttribute('data-sidebar', 'colored')">
+                        <label class="form-check-label" for="sidebar-color-colored">Colored</label>
+                    </div>
+
+                    <h6 class="mt-4 mb-3 pt-2">Direction</h6>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout-direction"
+                            id="layout-direction-ltr" value="ltr">
+                        <label class="form-check-label" for="layout-direction-ltr">LTR</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout-direction"
+                            id="layout-direction-rtl" value="rtl">
+                        <label class="form-check-label" for="layout-direction-rtl">RTL</label>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- end slimscroll-menu-->
+        </div>
+        <!-- /Right-bar -->
+
+        <!-- Right bar overlay-->
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+
+
+        <!-- App js -->
+        <script src="assets/js/app.js"></script>
+
+    </form>
+
+</body>
+</html>
+

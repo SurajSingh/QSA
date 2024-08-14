@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DBQuickStartAdmin</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{84b25899-dce2-4501-9a12-85ad55908de4}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath />
+    <RootNamespace>DBQuickStartAdmin</RootNamespace>
+    <AssemblyName>DBQuickStartAdmin</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SqlTargetName>DBQuickStartAdmin</SqlTargetName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="Tables\PrimaryKey" />
+    <Folder Include="Tables\ForeignKey" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="Functions" />
+    <Folder Include="Functions\ScalarValued" />
+    <Folder Include="Functions\TableValued" />
+    <Folder Include="PostDeployment" />
+    <Folder Include="StoredProcedures\SystemSP" />
+    <Folder Include="Views" />
+    <Folder Include="StoredProcedures\ReportSP" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\tblPageMaster.sql" />
+    <Build Include="Tables\tblPageRoleLnk.sql" />
+    <Build Include="Tables\tblRoleGroup.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblPageMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblRoleMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKPageID_tblPageRoleLnk_tblPageMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKRoleID_tblPageRoleLnk_tblRoleMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblRoleGroup.sql" />
+    <Build Include="Tables\tblCityMaster.sql" />
+    <Build Include="Tables\tblCompany.sql" />
+    <Build Include="Tables\tblCountryMaster.sql" />
+    <Build Include="Tables\tblDeptMaster.sql" />
+    <Build Include="Tables\tblDesigMaster.sql" />
+    <Build Include="Tables\tblErrorLogs.sql" />
+    <Build Include="Tables\tblStateMaster.sql" />
+    <Build Include="Tables\tblTahsilMaster.sql" />
+    <Build Include="Tables\tblUser.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblCityMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblCompany.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblCountryMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblDeptMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblDesigMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblStateMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblTahsilMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCityID_tblTahsilMaster_tblCityMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblDeptMaster_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblDesigMaster_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblUser_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCountryID_tblStateMaster_tblCountryMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblRoleGroup_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblUser_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKDeptID_tblUser_tblDeptMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKDesigID_tblUser_tblDesigMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblRoleGroup_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKRoleGroupID_tblRoleGroupLnk_tblRoleGroup.sql" />
+    <Build Include="Tables\ForeignKey\FKStateID_tblCityMaster_tblStateMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKTahsilID_tblCompany_tblTahsilMaster.sql" />
+    <Build Include="Tables\tblTimeZoneMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblTimeZoneMaster.sql" />
+    <Build Include="Tables\tblConfiguration.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblCurrencyMaster.sql" />
+    <Build Include="Tables\tblCurrencyMaster.sql" />
+    <Build Include="Functions\ScalarValued\fnGetDateFormat.sql" />
+    <Build Include="Functions\ScalarValued\fnGetUserDateTime.sql" />
+    <Build Include="Functions\TableValued\FunSplitString.sql" />
+    <Build Include="StoredProcedures\SystemSP\uspGetUserPages.sql" />
+    <Build Include="StoredProcedures\SystemSP\uspGetUserRoleAndPages.sql" />
+    <Build Include="StoredProcedures\SystemSP\uspInsertPage.sql" />
+    <Build Include="StoredProcedures\SystemSP\uspInsertUserRoles.sql" />
+    <Build Include="StoredProcedures\SystemSP\sp_InsertErrorLog.sql" />
+    <Build Include="StoredProcedures\SystemSP\uspGetNewID.sql" />
+    <Build Include="StoredProcedures\SystemSP\uspCreateNewCompany.sql" />
+    <Build Include="StoredProcedures\uspLogin.sql" />
+    <Build Include="StoredProcedures\uspInsertLog.sql" />
+    <Build Include="Tables\ForeignKey\FKTimezoneID_tblCompany_tblTimeZoneMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCurrencyID_tblCompany_tblCurrencyMaster.sql" />
+    <Build Include="StoredProcedures\uspGetDesignation.sql" />
+    <Build Include="StoredProcedures\uspDeleteDepartment.sql" />
+    <Build Include="StoredProcedures\uspDeleteDesignation.sql" />
+    <Build Include="StoredProcedures\uspGetDepartment.sql" />
+    <Build Include="StoredProcedures\uspInsertDepartment.sql" />
+    <Build Include="StoredProcedures\uspInsertDesignation.sql" />
+    <Build Include="StoredProcedures\uspInsertRoleGroup.sql" />
+    <Build Include="StoredProcedures\uspGetAllRoleGroup.sql" />
+    <Build Include="StoredProcedures\uspValidateUserID.sql" />
+    <Build Include="StoredProcedures\uspGetAllRoles.sql" />
+    <Build Include="StoredProcedures\uspGetUser.sql" />
+    <Build Include="StoredProcedures\uspGetTimezoneID.sql" />
+    <Build Include="StoredProcedures\uspGetCurrency.sql" />
+    <Build Include="StoredProcedures\uspUpdateCompany.sql" />
+    <Build Include="StoredProcedures\uspGetCompany.sql" />
+    <Build Include="StoredProcedures\uspGetCity.sql" />
+    <Build Include="StoredProcedures\uspGetCountry.sql" />
+    <Build Include="StoredProcedures\uspGetState.sql" />
+    <Build Include="StoredProcedures\uspGetTahsil.sql" />
+    <Build Include="Functions\ScalarValued\FunRemoveDataType.sql" />
+    <Build Include="Tables\tblTableLayout.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblTableLayout.sql" />
+    <Build Include="Tables\ForeignKey\FKPageID_tblTableLayout_tblPageMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblTableLayout_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKUserID_tblTableLayout_tblUser.sql" />
+    <Build Include="StoredProcedures\uspInsertTableLayout.sql" />
+    <Build Include="StoredProcedures\uspGetTableLayout.sql" />
+    <Build Include="Tables\tblPayModeMaster.sql" />
+    <Build Include="StoredProcedures\uspGetConfiguration.sql" />
+    <Build Include="StoredProcedures\uspInsertConfiguration.sql" />
+    <Build Include="Tables\tblPrintLog.sql" />
+    <Build Include="StoredProcedures\uspGetCompanyForReport.sql" />
+    <Build Include="Tables\tblImportMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblImportMaster.sql" />
+    <Build Include="Tables\tblImportUserDef.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblImportUserDef.sql" />
+    <Build Include="Tables\ForeignKey\FKImportMasterID_tblImportUserDef_tblImportMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblImportUserDef_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblImportUserDef_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblImportUserDef_tblUser.sql" />
+    <Build Include="Tables\tblImportLog.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblImportLog.sql" />
+    <Build Include="Tables\ForeignKey\FKImportMasterID_tblImportLog_tblImportMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblImportLog_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblImportLog_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblImportLog_tblUser.sql" />
+    <Build Include="StoredProcedures\uspGetUserImportDefination.sql" />
+    <Build Include="StoredProcedures\uspGetImportFields.sql" />
+    <Build Include="StoredProcedures\uspInsertImportLog.sql" />
+    <Build Include="StoredProcedures\uspInsertImportUserDefination.sql" />
+    <Build Include="StoredProcedures\uspGetImportLog.sql" />
+    <Build Include="StoredProcedures\uspGetBankMaster.sql" />
+    <Build Include="StoredProcedures\SystemSP\uspGetPagesByCompany.sql" />
+    <Build Include="Tables\tblCompanyPages.sql" />
+    <Build Include="Tables\ForeignKey\FKPageID_tblCompanyPages_tblPageMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblCompanyPages_tblCompany.sql" />
+    <Build Include="StoredProcedures\uspSaveCompanyPage.sql" />
+    <Build Include="Tables\tblPage.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblPage.sql" />
+    <Build Include="StoredProcedures\uspSetLinkStatus.sql" />
+    <Build Include="StoredProcedures\uspGetCurrencyConversion.sql" />
+    <Build Include="StoredProcedures\uspChangePassword.sql" />
+    <Build Include="StoredProcedures\uspDeleteDesignMaster.sql" />
+    <Build Include="Tables\tblEmailMsgLocation.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblEmailMsgLocation.sql" />
+    <Build Include="Tables\tblEmailTemplate.sql" />
+    <Build Include="Tables\ForeignKey\FKEmailMsgLocID_tblEmailTemplate_tblEmailMsgLocation.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblEmailTemplate_tblCompany.sql" />
+    <Build Include="Tables\tblEmailSettings.sql" />
+    <Build Include="StoredProcedures\uspGetEmailMsgLocation.sql" />
+    <Build Include="StoredProcedures\uspGetEmailSettings.sql" />
+    <Build Include="StoredProcedures\uspInsertEmailSettings.sql" />
+    <Build Include="StoredProcedures\uspInsertSMSSettings.sql" />
+    <Build Include="StoredProcedures\uspInsertEmailTemplate.sql" />
+    <Build Include="StoredProcedures\uspGetEmailTemplate.sql" />
+    <Build Include="StoredProcedures\uspLogout.sql" />
+    <Build Include="Tables\tblPrintLayout.sql" />
+    <Build Include="StoredProcedures\uspGetPrintLayout.sql" />
+    <None Include="PostDeployment\UsCountryStateCity.sql" />
+    <Build Include="StoredProcedures\uspInsertCountryStateCity.sql" />
+    <Build Include="StoredProcedures\uspDeleteCountryStateCity.sql" />
+    <Build Include="StoredProcedures\uspDeleteUser.sql" />
+    <Build Include="StoredProcedures\SystemSP\uspGetRolesByCompany.sql" />
+    <Build Include="StoredProcedures\uspLoginWithToken.sql" />
+    <Build Include="Tables\tblDevice.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblDevice.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblDevice_tblCompany.sql" />
+    <Build Include="Tables\tblDashboard.sql" />
+    <Build Include="Tables\ForeignKey\FKDashboardID_tblUser_tblDashboard.sql" />
+    <Build Include="StoredProcedures\uspGetCompanyDashboard.sql" />
+    <Build Include="Tables\tblOrgType.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblOrgType.sql" />
+    <Build Include="Tables\ForeignKey\OrgTypeID_tblUser_tblOrgType.sql" />
+    <Build Include="Tables\ForeignKey\FKCityID_tblUser_tblCityMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKStateID_tblUser_tblStateMaster.sql" />
+    <Build Include="Tables\ForeignKey\OrgTypeID_tblRoleGroup_tblOrgType.sql" />
+    <Build Include="StoredProcedures\uspGetRecentLog.sql" />
+    <Build Include="Tables\tblStatusMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblStatusMaster.sql" />
+    <Build Include="StoredProcedures\uspGetTransaction.sql" />
+    <Build Include="Tables\tblRoleGroupLnk.sql" />
+    <Build Include="Tables\tblRoleMaster.sql" />
+    <Build Include="Tables\tblEmpRate.sql" />
+    <Build Include="Tables\ForeignKey\FKUserID_tblEmpRate_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCurrencyID_tblEmpRate_tblCurrencyMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKTimezoneID_tblUser_tblTimeZoneMaster.sql" />
+    <Build Include="Tables\tblClient.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblClient.sql" />
+    <Build Include="Tables\ForeignKey\FKCityID_tblClient_tblCityMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblClient_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblClient_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKStateID_tblClient_tblStateMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblClient_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCountryID_tblClient_tblCountryMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKManagerID_tblClient_tblUser.sql" />
+    <Build Include="Tables\tblProject.sql" />
+    <Build Include="Tables\tblProjectDetail.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblProject.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblProject_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblProject_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblProject_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKManagerID_tblProject_tblUser.sql" />
+    <Build Include="Tables\tblPaymentTerm.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblPaymentTerm_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblPaymentTerm_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblPaymentTerm_tblUser.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblPaymentTerm.sql" />
+    <Build Include="Tables\ForeignKey\FKTermID_tblProjectDetail_tblPaymentTerm.sql" />
+    <Build Include="Tables\ForeignKey\FKProjectID_tblProjectDetail_tblProject.sql" />
+    <Build Include="Tables\ForeignKey\FKClientID_tblProject_tblClient.sql" />
+    <Build Include="Tables\tblTaxMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblTaxMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblTaxMaster_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblTaxMaster_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblTaxMaster_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKTaxID_tblProjectDetail_tblTaxMaster.sql" />
+    <Build Include="Tables\tblTask.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblTask_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblTask_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblTask_tblUser.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblTask.sql" />
+    <Build Include="Tables\tblEmpGroup.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblEmpGroup_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblEmpGroup_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblEmpGroup_tblUser.sql" />
+    <Build Include="Tables\tblEmpGroupDetail.sql" />
+    <Build Include="Tables\ForeignKey\FKID_tblEmpGroupDetail_tblEmpGroup.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblEmpGroupDetail_tblUser.sql" />
+    <Build Include="Tables\tblProjectGroup.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblProjectGroup.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblEmpGroup.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblProjectGroup_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblProjectGroup_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblProjectGroup_tblUser.sql" />
+    <Build Include="Tables\tblProjectGroupDetail.sql" />
+    <Build Include="Tables\ForeignKey\FKID_tblProjectGroupDetail_tblProjectGroup.sql" />
+    <Build Include="Tables\ForeignKey\FKProjectID_tblProjectGroupDetail_tblProject.sql" />
+    <Build Include="Tables\tblClientGroup.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblClientGroup.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblClientGroup_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblClientGroup_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblClientGroup_tblUser.sql" />
+    <Build Include="Tables\tblClientGroupDetail.sql" />
+    <Build Include="Tables\ForeignKey\FKID_tblClientGroupDetail_tblClientGroup.sql" />
+    <Build Include="Tables\ForeignKey\FKClientID_tblClientGroupDetail_tblClient.sql" />
+    <Build Include="Tables\tblExpenseGroup.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblExpenseGroup_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblExpenseGroup_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblExpenseGroup_tblUser.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblExpenseGroup.sql" />
+    <Build Include="Tables\tblExpenseGroupDetail.sql" />
+    <Build Include="Tables\ForeignKey\FKID_tblExpenseGroupDetail_tblExpenseGroup.sql" />
+    <Build Include="Tables\ForeignKey\FKExpID_tblExpenseGroupDetail_tblTask.sql" />
+    <Build Include="Tables\tblUserLog.sql" />
+    <Build Include="StoredProcedures\uspGetEmpForAutoComplate.sql" />
+    <Build Include="StoredProcedures\uspInsertUser.sql" />
+    <Build Include="Tables\ForeignKey\FKManagerID_tblDeptMaster_tblUser.sql" />
+    <Build Include="StoredProcedures\uspInsertTaxMaster.sql" />
+    <Build Include="StoredProcedures\uspDeleteTaxMaster.sql" />
+    <Build Include="StoredProcedures\uspGetTaxMaster.sql" />
+    <Build Include="StoredProcedures\uspInsertTaskMaster.sql" />
+    <Build Include="StoredProcedures\uspGetTaskMaster.sql" />
+    <Build Include="StoredProcedures\uspDeleteTaskMaster.sql" />
+    <Build Include="StoredProcedures\uspInsertClient.sql" />
+    <Build Include="StoredProcedures\uspDeleteClient.sql" />
+    <Build Include="StoredProcedures\uspGetClient.sql" />
+    <Build Include="Tables\tblContractType.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblContractType.sql" />
+    <Build Include="Tables\ForeignKey\FKContractTypeID_tblProject_tblContractType.sql" />
+    <Build Include="Tables\tblBillingFrequency.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblBillingFrequency.sql" />
+    <Build Include="Tables\ForeignKey\FKBillingFrequency_tblProjectDetail_tblBillingFrequency.sql" />
+    <Build Include="Tables\ForeignKey\FKCurrencyID_tblProjectDetail_tblCurrencyMaster.sql" />
+    <Build Include="StoredProcedures\uspGetContractType.sql" />
+    <Build Include="StoredProcedures\uspGetBillingFrequency.sql" />
+    <Build Include="StoredProcedures\uspGetClientForAutoComplete.sql" />
+    <Build Include="StoredProcedures\uspGetPaymentTerm.sql" />
+    <Build Include="StoredProcedures\uspInsertProject.sql" />
+    <Build Include="StoredProcedures\uspGetProject.sql" />
+    <Build Include="StoredProcedures\uspDeleteProject.sql" />
+    <Build Include="StoredProcedures\uspUploadCompanyLogo.sql" />
+    <Build Include="StoredProcedures\uspInsertPaymentTerm.sql" />
+    <Build Include="StoredProcedures\uspDeletePaymentTerm.sql" />
+    <Build Include="StoredProcedures\uspUpdateBillingSettings.sql" />
+    <Build Include="StoredProcedures\uspUpdateInvoiceTemplate.sql" />
+    <Build Include="StoredProcedures\uspUpdateAttendanceSetting.sql" />
+    <Build Include="Tables\tblTimeSheet.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblTimeSheet.sql" />
+    <Build Include="Tables\ForeignKey\FKTaskID_tblTimeSheet_tblTask.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblTimeSheet_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKProjectID_tblTimeSheet_tblProject.sql" />
+    <Build Include="Tables\ForeignKey\FKSubmitToID_tblTimeSheet_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKApproveByID_tblTimeSheet_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblTimeSheet_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblTimeSheet_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblTimeSheet_tblUser.sql" />
+    <Build Include="StoredProcedures\uspGetProjectForAutoComplete.sql" />
+    <Build Include="StoredProcedures\uspGetTaskForAutoComplete.sql" />
+    <Build Include="StoredProcedures\uspGetTimesheet.sql" />
+    <Build Include="StoredProcedures\uspInsertTimesheet.sql" />
+    <Build Include="Tables\tblExpensesLog.sql" />
+    <Build Include="Tables\ForeignKey\FKApproveByID_tblExpensesLog_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblExpensesLog_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblExpensesLog_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblExpensesLog_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblExpensesLog_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKProjectID_tblExpensesLog_tblProject.sql" />
+    <Build Include="Tables\ForeignKey\FKTaskID_tblExpensesLog_tblTask.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblExpensesLog.sql" />
+    <Build Include="StoredProcedures\uspInsertExpensesLog.sql" />
+    <Build Include="StoredProcedures\uspGetExpensesLog.sql" />
+    <Build Include="Tables\tblTaskAssignment.sql" />
+    <Build Include="Tables\ForeignKey\FKTaskID_tblTaskAssignment_tblTask.sql" />
+    <Build Include="Tables\ForeignKey\FKProjectID_tblTaskAssignment_tblProject.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblTaskAssignment_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblTaskAssignment_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblTaskAssignment_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblTaskAssignment_tblCompany.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblTaskAssignment.sql" />
+    <Build Include="StoredProcedures\uspInsertTaskAssignment.sql" />
+    <Build Include="Tables\ForeignKey\FKAssignLogID_tblTimeSheet_tblTaskAssignment.sql" />
+    <Build Include="StoredProcedures\uspGetTaskAssignment.sql" />
+    <Build Include="StoredProcedures\uspDeleteTaskAssignment.sql" />
+    <Build Include="StoredProcedures\uspDeleteAssignmentLog.sql" />
+    <Build Include="Tables\tblAnnouncement.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblAnnouncement.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblAnnouncement_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblAnnouncement_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblAnnouncement_tblUser.sql" />
+    <Build Include="Tables\tblAnnouncementNotification.sql" />
+    <Build Include="Tables\ForeignKey\FKUserID_tblAnnouncementNotification_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKAnnouncementID_tblAnnouncementNotification_tblAnnouncement.sql" />
+    <Build Include="StoredProcedures\uspInsertAnnouncement.sql" />
+    <Build Include="StoredProcedures\uspGetAnnouncement.sql" />
+    <Build Include="StoredProcedures\uspDeleteAnnouncement.sql" />
+    <Build Include="StoredProcedures\uspGetNotification.sql" />
+    <Build Include="StoredProcedures\uspInsertGroups.sql" />
+    <Build Include="StoredProcedures\uspGetGroups.sql" />
+    <Build Include="StoredProcedures\uspDeleteGroups.sql" />
+    <Build Include="Tables\tblInvoice.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblInvoice.sql" />
+    <Build Include="Tables\ForeignKey\FKCityID_tblInvoice_tblCityMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblInvoice_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCountryID_tblInvoice_tblCountryMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblInvoice_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblInvoice_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKStateID_tblInvoice_tblStateMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKProjectID_tblInvoice_tblProject.sql" />
+    <Build Include="Tables\ForeignKey\FKPayTermID_tblInvoice_tblPaymentTerm.sql" />
+    <Build Include="Tables\ForeignKey\FKTaxID_tblInvoice_tblTaxMaster.sql" />
+    <Build Include="Tables\tblInvoiceDetail.sql" />
+    <Build Include="Tables\ForeignKey\FKID_tblInvoiceDetail_tblInvoice.sql" />
+    <Build Include="Tables\tblTransaction.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblTransaction.sql" />
+    <Build Include="Tables\ForeignKey\FKClientID_tblTransaction_tblClient.sql" />
+    <Build Include="Tables\ForeignKey\FKInvoiceID_tblTransaction_tblInvoice.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblTransaction_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblTransaction_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblTransaction_tblUser.sql" />
+    <Build Include="StoredProcedures\uspGetProjectDetail.sql" />
+    <Build Include="Tables\ForeignKey\FKCurrencyID_tblInvoice_tblCurrencyMaster.sql" />
+    <Build Include="StoredProcedures\uspInsertInvoice.sql" />
+    <Build Include="StoredProcedures\uspGetUnBilledTasks.sql" />
+    <Build Include="StoredProcedures\uspGetInvoice.sql" />
+    <Build Include="StoredProcedures\uspDeleteInvoice.sql" />
+    <Build Include="Tables\tblPayment.sql" />
+    <Build Include="Tables\ForeignKey\FKClientID_tblPayment_tblClient.sql" />
+    <Build Include="Tables\ForeignKey\FKPaymodeID_tblPayment_tblPayModeMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblPayment_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblPayment_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblPayment_tblUser.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblPayment.sql" />
+    <Build Include="Tables\tblPaymentType.sql" />
+    <Build Include="Tables\PrimaryKey\PKID_tblPaymentType.sql" />
+    <Build Include="StoredProcedures\uspGetPaymentModeMaster.sql" />
+    <Build Include="StoredProcedures\uspGetPaymentTypeMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKPaymentTypeID_tblPayment_tblPaymentType.sql" />
+    <Build Include="Tables\tblInvAdjustment.sql" />
+    <Build Include="Tables\ForeignKey\FKInvoiceID_tblInvAdjustment_tblInvoice.sql" />
+    <Build Include="Tables\ForeignKey\FKPaymentID_tblInvAdjustment_tblPayment.sql" />
+    <Build Include="StoredProcedures\uspInsertPayment.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblPayModeMaster.sql" />
+    <Build Include="StoredProcedures\uspGetPayment.sql" />
+    <Build Include="StoredProcedures\uspGetInvForAdjustment.sql" />
+    <Build Include="StoredProcedures\uspDeletePayment.sql" />
+    <Build Include="Tables\tblClientSchedule.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblClientSchedule.sql" />
+    <Build Include="Tables\tblWorkTypeMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblWorkTypeMaster_tblCompany.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblWorkTypeMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKWorkTypeID_tblClientSchedule_tblWorkTypeMaster.sql" />
+    <Build Include="Tables\tblScheduleStatus.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblScheduleStatus.sql" />
+    <Build Include="Tables\ForeignKey\FKStatusID_tblClientSchedule_tblScheduleStatus.sql" />
+    <Build Include="Tables\ForeignKey\FKProjectID_tblClientSchedule_tblProject.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblClientSchedule_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblClientSchedule_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblClientSchedule_tblUser.sql" />
+    <Build Include="Tables\tblClientScheduleDetail.sql" />
+    <Build Include="Tables\ForeignKey\FKID_tblClientScheduleDetail_tblClientSchedule.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblClientScheduleDetail_tblUser.sql" />
+    <Build Include="StoredProcedures\uspInsertClientSchedule.sql" />
+    <Build Include="StoredProcedures\uspGetClientSchedule.sql" />
+    <Build Include="Functions\ScalarValued\FunGetScheduledEmp.sql" />
+    <Build Include="StoredProcedures\uspGetClientScheduleDetail.sql" />
+    <Build Include="StoredProcedures\uspDeleteClientSchedule.sql" />
+    <Build Include="StoredProcedures\uspGetWorkTypeMaster.sql" />
+    <Build Include="StoredProcedures\uspGetScheduleStatusMaster.sql" />
+    <Build Include="StoredProcedures\uspUpdateScheduleStatus.sql" />
+    <Build Include="Tables\tblPayrollSetting.sql" />
+    <Build Include="Tables\tblPayrollSettingWorkingDays.sql" />
+    <Build Include="Tables\tblPayrollSettingLeave.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblPayrollSetting.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblPayrollSetting_tblCompany.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblPayrollSettingLeave.sql" />
+    <Build Include="Tables\ForeignKey\FKSettingID_tblPayrollSettingLeave_tblPayrollSetting.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblPayrollSettingWorkingDays.sql" />
+    <Build Include="Tables\ForeignKey\FKSettingID_tblPayrollSettingWorkingDays_tblPayrollSetting.sql" />
+    <Build Include="StoredProcedures\uspInsertPayrollSetting.sql" />
+    <Build Include="StoredProcedures\uspGetPayrollSetting.sql" />
+    <Build Include="Tables\tblWeekDays.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblWeekDays.sql" />
+    <Build Include="Tables\tblHoliday.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblHoliday.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblHoliday_tblCompany.sql" />
+    <Build Include="StoredProcedures\uspInsertHoliday.sql" />
+    <Build Include="StoredProcedures\uspGetHoliday.sql" />
+    <Build Include="StoredProcedures\uspDeleteHoliday.sql" />
+    <Build Include="Functions\TableValued\FunGetEmpLeaveDetail.sql" />
+    <Build Include="Tables\tblLeaveRequest.sql" />
+    <Build Include="Tables\tblFiscalYear.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblFiscalYear.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblFiscalYear_tblCompany.sql" />
+    <Build Include="Tables\tblEmployeeLeaveBalance.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblEmployeeLeaveBalance.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblEmployeeLeaveBalance_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLeaveID_tblEmployeeLeaveBalance_tblPayrollSettingLeave.sql" />
+    <Build Include="Tables\ForeignKey\FKYearID_tblEmployeeLeaveBalance_tblFiscalYear.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblLeaveRequest.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblLeaveRequest_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLeaveID_tblLeaveRequest_tblPayrollSettingLeave.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblLeaveRequest_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKApproveBy_tblLeaveRequest_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblLeaveRequest_tblUser.sql" />
+    <Build Include="StoredProcedures\uspGetEmpLeaveReport.sql" />
+    <Build Include="StoredProcedures\uspGetLeaveRequest.sql" />
+    <Build Include="StoredProcedures\uspDeleteLeaveRequest.sql" />
+    <Build Include="StoredProcedures\uspInsertLeaveRequest.sql" />
+    <Build Include="StoredProcedures\uspCalculateEmployeeLeave.sql" />
+    <Build Include="Functions\ScalarValued\fnGetReceiverEmail.sql" />
+    <Build Include="StoredProcedures\uspApproveLeaveRequest.sql" />
+    <Build Include="Tables\tblAppointmentAvailability.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblAppointmentAvailability.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblAppointmentAvailability_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblAppointmentAvailability_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblAppointmentAvailability_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblAppointmentAvailability_tblUser.sql" />
+    <Build Include="StoredProcedures\uspGetAppointmentAvailability.sql" />
+    <Build Include="Tables\tblAppoinment.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblAppoinment.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblAppoinment_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblAppoinment_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblAppoinment_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblAppoinment_tblUser.sql" />
+    <Build Include="StoredProcedures\uspInsertAppointmentAvailability.sql" />
+    <Build Include="Functions\ScalarValued\fnMinutesToTime.sql" />
+    <Build Include="StoredProcedures\uspGetAppointment.sql" />
+    <Build Include="Tables\ForeignKey\FKIntervalID_tblAppoinment_tblAppointmentAvailability.sql" />
+    <Build Include="StoredProcedures\uspInsertAppointment.sql" />
+    <Build Include="StoredProcedures\uspDeleteAppointment.sql" />
+    <Build Include="StoredProcedures\uspUpdateAppointmentStatus.sql" />
+    <Build Include="Tables\tblDashboardLink.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblDashboardLink.sql" />
+    <Build Include="StoredProcedures\uspGetUserDashboardLink.sql" />
+    <Build Include="StoredProcedures\uspGetAdminDashboard.sql" />
+    <Build Include="StoredProcedures\uspDashboardGetTopTasks.sql" />
+    <Build Include="StoredProcedures\uspDeleteRoleGroup.sql" />
+    <Build Include="Tables\ForeignKey\FKRoleGroupID_tblUser_tblRoleGroup.sql" />
+    <Build Include="Tables\tblAssetCategory.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblAssetCategory_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblAssetCategory_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblAssetCategory_tblUser.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblAssetCategory.sql" />
+    <Build Include="Tables\tblAsset.sql" />
+    <Build Include="Tables\tblPartyMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblPartyMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCityID_tblPartyMaster_tblCityMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblPartyMaster_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCountryID_tblPartyMaster_tblCountryMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblPartyMastertblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblPartyMaster_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKStateID_tblPartyMaster_tblStateMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblAsset.sql" />
+    <Build Include="Tables\tblAssetConditionMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblAssetConditionMaster.sql" />
+    <Build Include="Tables\tblLocationMaster.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblLocationMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCategoryID_tblAsset_tblAssetCategory.sql" />
+    <Build Include="Tables\ForeignKey\FKPartyID_tblAsset_tblPartyMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKConditionID_tblAsset_tblAssetConditionMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKLocationID_tblAsset_tblLocationMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKDeptID_tblAsset_tblDeptMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblAsset_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKRepairPartyID_tblAsset_tblPartyMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblAsset_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblAsset_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblAsset_tblUser.sql" />
+    <Build Include="Tables\tblLocationTransfer.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblLocationTransfer_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblLocationTransfer_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKDeptID_tblLocationTransfer_tblDeptMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKEmpID_tblLocationTransfer_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKRepairPartyID_tblLocationTransfer_tblPartyMaster.sql" />
+    <Build Include="Tables\ForeignKey\FKPrevID_tblLocationTransfer_tblLocationTransfer.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblLocationTransfer.sql" />
+    <Build Include="Tables\ForeignKey\FKAssetID_tblLocationTransfer_tblAsset.sql" />
+    <Build Include="Tables\ForeignKey\FKLocationID_tblLocationTransfer_tblLocationMaster.sql" />
+    <Build Include="StoredProcedures\uspInsertAssetCategory.sql" />
+    <Build Include="StoredProcedures\uspGetAssetCategory.sql" />
+    <Build Include="StoredProcedures\uspDeleteAssetCategory.sql" />
+    <Build Include="StoredProcedures\uspInsertParty.sql" />
+    <Build Include="StoredProcedures\uspGetParty.sql" />
+    <Build Include="StoredProcedures\uspDeleteParty.sql" />
+    <Build Include="StoredProcedures\uspInsertAsset.sql" />
+    <Build Include="StoredProcedures\uspGetAsset.sql" />
+    <Build Include="StoredProcedures\uspDeleteAsset.sql" />
+    <Build Include="StoredProcedures\uspGetAssetConditionMaster.sql" />
+    <Build Include="StoredProcedures\uspGetLocationMaster.sql" />
+    <Build Include="Functions\ScalarValued\FunGetAssetLocation.sql" />
+    <Build Include="StoredProcedures\uspGetAssetForAutoComplete.sql" />
+    <Build Include="StoredProcedures\uspInsertLocationTransfer.sql" />
+    <Build Include="StoredProcedures\uspDeleteLocationTransfer.sql" />
+    <Build Include="StoredProcedures\uspGetLocationTransfer.sql" />
+    <Build Include="StoredProcedures\ReportSP\uspGetAgingReport.sql" />
+    <Build Include="Functions\ScalarValued\FunGetInvoiceDueonDate.sql" />
+    <Build Include="Tables\tblProjectModule.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblProjectModule.sql" />
+    <Build Include="Tables\ForeignKey\FKParentID_tblProjectModule_tblProjectModule.sql" />
+    <Build Include="Tables\ForeignKey\FKProjectID_tblProjectModule_tblProject.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblProjectModule_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblProjectModule_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblProjectModule_tblUser.sql" />
+    <Build Include="StoredProcedures\uspGetProjectModule.sql" />
+    <Build Include="StoredProcedures\uspInsertProjectModule.sql" />
+    <Build Include="StoredProcedures\uspDeleteProjectModule.sql" />
+    <Build Include="Tables\ForeignKey\FKProjectForecastingID_tblTaskAssignment_tblProjectModule.sql" />
+    <Build Include="Functions\ScalarValued\FunGetProjectModuleEmp.sql" />
+    <Build Include="Functions\ScalarValued\FunGetProjectModuleParent.sql" />
+    <Build Include="StoredProcedures\uspAssignProjectModule.sql" />
+    <Build Include="StoredProcedures\uspUpdateModuleStatus.sql" />
+    <Build Include="Tables\tblProjectBudget.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblProjectBudget.sql" />
+    <Build Include="Tables\ForeignKey\FKProjectID_tblProjectBudget_tblProject.sql" />
+    <Build Include="Tables\ForeignKey\FKCompanyID_tblProjectBudget_tblCompany.sql" />
+    <Build Include="Tables\ForeignKey\FKCreatedBy_tblProjectBudget_tblUser.sql" />
+    <Build Include="Tables\ForeignKey\FKLastModifiedBy_tblProjectBudget_tblUser.sql" />
+    <Build Include="Tables\tblBudgetDetail.sql" />
+    <Build Include="Tables\PrimaryKey\PK_tblBudgetDetail.sql" />
+    <Build Include="Tables\ForeignKey\FKBudgetID_tblBudgetDetail_tblProjectBudget.sql" />
+    <Build Include="Tables\ForeignKey\FKTaskID_tblBudgetDetail_tblTask.sql" />
+    <Build Include="StoredProcedures\uspGetProjectBudget.sql" />
+    <Build Include="StoredProcedures\uspInsertProductBudget.sql" />
+    <Build Include="StoredProcedures\uspDeleteProjectBudget.sql" />
+    <Build Include="StoredProcedures\uspGetBudgetForAutoComplete.sql" />
+    <Build Include="Functions\ScalarValued\FunGetClientAddress.sql" />
+    <Build Include="StoredProcedures\ReportSP\uspGetTimesheetReport.sql" />
+    <Build Include="Views\ViewTimesheetwithExpenses.sql" />
+    <Build Include="StoredProcedures\ReportSP\uspGetTimeandExpReport.sql" />
+    <Build Include="StoredProcedures\ReportSP\uspGetBudgetReport.sql" />
+    <Build Include="StoredProcedures\ReportSP\uspGetBudgetDetailReport.sql" />
+    <Build Include="StoredProcedures\ReportSP\uspGetProjectForcastingReport.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PostDeployment\RolesAndPages.sql" />
+    <None Include="PostDeployment\CountryStateCity.sql" />
+    <None Include="PostDeployment\DefaultData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+</Project>

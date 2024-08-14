@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[tblTask]
+	ADD CONSTRAINT [PK_tblTask]
+	PRIMARY KEY (PKID)

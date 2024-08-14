@@ -1,0 +1,117 @@
+﻿.datebox-outer {
+    width: 45%;
+    display: table-cell;
+    padding-right: 10px;
+}
+
+.datebox {
+    background-color: #fff !important;
+    border-radius: 5px;
+    float: left;
+    box-shadow: 0 0 5px rgb(0 122 199 / 60%);
+    width: 100%;
+    cursor: pointer;
+    transition: all .2s ease 0s;
+    font-size: 12px;
+}
+
+.datebox-arrow {
+    display: table-cell;
+    width: 10%;
+    vertical-align: middle;
+    text-align: center;
+    color: #11A18C;
+    padding-right:5px;
+}
+
+.datedetail {
+    text-align: center;
+    font-size: 12px;
+    padding: 2px;
+    text-transform: uppercase;
+}
+
+    .datedetail span {
+        display: block;
+        clear: both;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+.monthdetail {
+    background: #11A18C;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+   
+    padding: 2px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    line-height: 15px;
+}
+
+.ulreport-box h2 {
+    color: #11A18C;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 0px;
+    padding-top: 3px;
+    margin: 0px;
+}
+
+.ulreport-box p {
+    padding: 0px;
+    margin: 0px;
+}
+
+.worktype div {
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 22px;
+    font-weight: bold;
+    float:left;
+}
+.worktype .divtime {
+    margin-right:15px;
+    color:#d77e3e;
+    padding-left:0px;
+}
+.worktype .worktype2 {
+    background-image: url(/Users/images/field-work.png);
+    color: #1111A1;
+}
+
+.worktype .worktype1 {
+    background-image: url(/Users/images/office-work.png);
+    color: #11A18C;
+}
+
+.empbox {
+    color: #000000;
+}
+
+    .empbox i {
+        color: #11A18C;
+    }
+
+.btnstatus {
+    margin: 0px;
+    padding: 0px;
+    color: #000000;
+    font-weight:bold;
+}
+
+    .btnstatus.btnstatus2 {
+        color: #11A18C;
+    }
+
+    .btnstatus.btnstatus1 {
+        color: #ff6a00;
+    }
+
+    .btnstatus.btnstatus3 {
+        color: #ff0000;
+    }

@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ReportMaster.master.cs" Inherits="QuickStartAdmin.Users.Reports.ReportMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Reports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/reportcss.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/Users/assets/images/favicon.ico">
+    <script src="/Users/assets/libs/jquery/jquery.min.js"></script>
+    <script src="/Users/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        function LogoutParent() {
+            window.parent.location.href = "/Users/Logout.aspx";
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server" EnableCdn="true"></asp:ScriptManager>
+        <div class="divmain">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
