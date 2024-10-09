@@ -61,13 +61,11 @@
     <Reference Include="Hangfire.SqlServer, Version=1.8.14.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hangfire.SqlServer.1.8.14\lib\net451\Hangfire.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="itextsharp, Version=5.5.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\itextsharp.dll</HintPath>
+    <Reference Include="itextsharp">
+      <HintPath>..\BLGeneral\bin\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="itextsharp.xmlworker, Version=5.5.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\itextsharp.xmlworker.dll</HintPath>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>..\BLGeneral\bin\itextsharp.xmlworker.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -237,6 +235,7 @@
     <Content Include="Login.aspx" />
     <Content Include="README.txt" />
     <Content Include="ResetPassword.aspx" />
+    <Content Include="ResetPasswordByEmailSend.aspx" />
     <Content Include="Users\Announcements.aspx" />
     <Content Include="Users\ApproveLeaveRequest.aspx" />
     <Content Include="Users\AssetMaster.aspx" />
@@ -1852,6 +1851,13 @@
     </Compile>
     <Compile Include="ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResetPasswordByEmailSend.aspx.cs">
+      <DependentUpon>ResetPasswordByEmailSend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResetPasswordByEmailSend.aspx.designer.cs">
+      <DependentUpon>ResetPasswordByEmailSend.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Users\Announcements.aspx.cs">

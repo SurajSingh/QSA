@@ -2,6 +2,8 @@
 using System;
 using System.Data;
 using BL.Master;
+using BLGeneral.Message;
+using System.Configuration;
 
 namespace QuickStartAdmin
 {
@@ -39,6 +41,23 @@ namespace QuickStartAdmin
             {
                 if (Convert.ToInt32(ds.Tables[0].Rows[0]["Result"]) == 1)
                 {
+                    int id = Convert.ToInt32(ds.Tables[0].Rows[0]["PKUserID"]);
+                    string resetPageUrl = $"http://localhost:51946/ResetPasswordByEmailSend.aspx?UserId={id}";
+
+                    EmailData emailData = new EmailData
+                    {
+                        SenderEmail = ConfigurationManager.AppSettings["SenderMail"],
+                        SenderPWD = ConfigurationManager.AppSettings["SenderPass"],
+                        SMTPServer = ConfigurationManager.AppSettings["MailHost"],
+                        SMTPPort = 587,
+                        EnableSSL = Convert.ToBoolean(ConfigurationManager.AppSettings["EnableSSL"]),
+                        To = ds.Tables[0].Rows[0]["EmailID"].ToString(),
+                        Subject = "Password Reset Request",
+                        Message = $"Please click the following link to reset your password: {resetPageUrl}"
+                    };
+
+                    ClsSendSMSEmail.SendEmailAsync(emailData);
+
                     //send email to user with the reset password link
                     divforgotpassword.Visible = false;
                     divnotify.Visible = true;

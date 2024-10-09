@@ -131,6 +131,11 @@ namespace BL.Master
             dbcommand = db.GetStoredProcCommand("uspChangePassword", PKUserID, PWD, PWDNew);
             return db.ExecuteDataSet(dbcommand);
         }
+        public DataSet ResetPasswordByPKUserId()
+        {
+            dbcommand = db.GetStoredProcCommand("uspResetPasswordByPKUserId", PKUserID, PWDNew);
+            return db.ExecuteDataSet(dbcommand);
+        }
         public DataSet UpdatePassword()
         {
             dbcommand = db.GetStoredProcCommand("uspUpdatePassword", LoginID, PWD);
