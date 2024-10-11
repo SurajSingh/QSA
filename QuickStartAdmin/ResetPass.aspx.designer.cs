@@ -33,6 +33,15 @@ namespace QuickStartAdmin
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divnotify;
 
         /// <summary>
+        /// SqlMsgDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SqlMsgDiv;
+
+        /// <summary>
         /// divresetpassword control.
         /// </summary>
         /// <remarks>

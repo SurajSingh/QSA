@@ -44,7 +44,7 @@ namespace QuickStartAdmin
                     int id = Convert.ToInt32(ds.Tables[0].Rows[0]["PKUserID"]);
                     string siteUrl = ConfigurationManager.AppSettings["WebURL"];
                     string resetPageUrl = $"{siteUrl}resetpass.aspx?id={id}";
-                    string emailTo = "surajsingh.bhati97@gmail.com"; //ds.Tables[0].Rows[0]["EmailID"].ToString();
+                    string emailTo = "shubhamverma1743@gmail.com"; //ds.Tables[0].Rows[0]["EmailID"].ToString();
                     EmailData emailData = new EmailData
                     {
                         SenderEmail = ConfigurationManager.AppSettings["SenderMail"],

@@ -297,6 +297,8 @@ function FunBlank() {
     $('#txtFKManagerID').GenexAutoCompleteBlank();
     $('#txtFKSubmitToID').GenexAutoCompleteBlank();
 
+    /*FunGetProjectForAutoComplete(FunProjectCallBack, 0, 'Active', 0);*/
+
     FunActiveRoleGroup();
     $('#popupTitle').find('span').html("New Employee");
 
@@ -1249,9 +1251,15 @@ function PageLoadFun() {
     FunFillCurrency(FunFillCurrencyCallBack);
     FunGetEmpForAutoComplate(FunEmpCallBack, 0, 'Active');
 
+
+    
+
 }
 
-
+function FunProjectCallBack(JsonArr) {
+    $("#dropFKProjectIDSrch").GenexAutoComplete(JsonArr, "ProjectID,Project,ClientID");
+    /*PageLoadComplete();*/
+}
 function FunGridLayoutCallback(JsonArr) {
 
     JsonReportLayout = JsonArr;

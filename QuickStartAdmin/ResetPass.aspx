@@ -37,7 +37,14 @@
                     <form id="form1" runat="server" class="login100-form">
 
                         <div id="divnotify" runat="server" visible="false" class="login100-notify">
-                            &nbsp;  Invalid Token.
+                            <div class="" id="SqlMsgDiv" runat="server" visible="false">
+                                &nbsp; 
+                            </div>
+                            <div class="text-center p-t-12">
+                                <span class="txt1">Back to 
+                                </span>
+                                <a class="txt2" href="Login.aspx">Login</a>
+                            </div>
                         </div>
                          <div id="divresetpassword" runat="server" visible="true">
                             <img src="/img/qsalogo.png" class="mobile-logo">

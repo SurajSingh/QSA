@@ -19,21 +19,21 @@ namespace QuickStartAdmin.Users
         public string StrCurrency = "$";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!ClsLogin.ValidateLogin())
-            {
-                Response.Redirect("/Users/Logout.aspx");
+            //    if (!ClsLogin.ValidateLogin())
+            //    {
+            //        Response.Redirect("/Users/Logout.aspx");
 
-            }
-            else
-            {
-                if (Convert.ToString(Session["RoleType"]) != "Admin")
-                {
-                    Response.Redirect("/Users/DashboardUser.aspx");
+            //    }
+            //    else
+            //    {
+            //        if (Convert.ToString(Session["RoleType"]) != "Admin")
+            //        {
+            //            Response.Redirect("/Users/DashboardUser.aspx");
 
-                }
-                StrLinks = ClsLogin.SettingDashboardLinks();
-            }
-            StrCurrency = Session["CurrencyName"].ToString();
+            //        }
+            //        StrLinks = ClsLogin.SettingDashboardLinks();
+            //    }
+            //    StrCurrency = Session["CurrencyName"].ToString();
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

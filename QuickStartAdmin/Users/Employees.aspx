@@ -311,6 +311,7 @@
                                 </div>
 
                             </div>
+                           <%-- Dushyant Sing--%>
                             <div class="col-sm-4 col-xs-4">
                                 <div class="mb-3">
                                     <label class="form-label">
@@ -323,7 +324,12 @@
                                 </div>
 
                             </div>
-
+                            <div class="col-sm-3 col-xs-4">
+                                <div class="mb-3">
+                                <label>Project:</label>
+                                <div id="divFKProjectIDSrch"></div>
+                                </div>
+                            </div>
                         </div>
 
 
@@ -644,4 +650,6 @@
     <!-- end row -->
     <script src="MasterJs/AddressJs.js"></script>
     <script src="UserJs/Manage/Employees.js?version=<%=PageVersion%>"></script>
+
+    <%--<script src="UserJs/Reports/BillingReport/RptInvoiceRegister.js"></script>--%>
 </asp:Content>

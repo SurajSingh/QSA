@@ -32,14 +32,24 @@ namespace QuickStartAdmin
             ds = objda.ResetPasswordByPKUserId();
             if (ds.Tables[0].Rows.Count > 0)
             {
-                if (Convert.ToInt32(ds.Tables[0].Rows[0]["Result"]) == 1)
+                int result = Convert.ToInt32(ds.Tables[0].Rows[0]["Result"]);
+                string message = ds.Tables[0].Rows[0]["Msg"].ToString();
+
+                if (result == 1)
                 {
-                    Response.Redirect("Login.aspx");
+                    divresetpassword.Visible = false;
+                    divnotify.Visible = true;
+                    SqlMsgDiv.Visible = true;  
+
+                    SqlMsgDiv.InnerHtml = HttpUtility.HtmlEncode(message);
                 }
                 else
                 {
-                    diverror.Visible = true;
-                    diverror.InnerHtml = ds.Tables[0].Rows[0]["Msg"].ToString();
+                    divresetpassword.Visible = false;
+                    divnotify.Visible = true;
+                    SqlMsgDiv.Visible = true;  
+
+                    SqlMsgDiv.InnerHtml = HttpUtility.HtmlEncode(message);
                 }
             }
             else
