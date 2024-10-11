@@ -44,10 +44,12 @@ namespace QuickStartAdmin.Users
                 ClsGeneral objgen = new ClsGeneral();
                 var dresult = DateRange.getLastDates(daterange, FromDate, ToDate, Convert.ToString(HttpContext.Current.Session["DateFormat"]));
 
-                if (!ClsLogin.ValidateRole((Int32)ClsRoles.UserRoles.ApproveEmployeeExpenses, ClsRoles.IsView))
-                {
-                    FKEmpID = Convert.ToString(HttpContext.Current.Session["UserID"]);
-                }
+                    if (!ClsLogin.ValidateRole((Int32)ClsRoles.UserRoles.ApproveEmployeeExpenses, ClsRoles.IsView))
+                    
+                    if (Convert.ToString(HttpContext.Current.Session["RoleType"]) != "Admin")
+                    {
+                        FKEmpID = Convert.ToString(HttpContext.Current.Session["UserID"]);
+                    }
 
 
                 DataSet ds = objda.GetExpensesLog(PageSize, OffSet, SortBy, SortDir, dresult.DateWise, dresult.fromdate, dresult.todate, 0, Convert.ToInt64(HttpContext.Current.Session["OrgID"]), FKEmpID, "", FKProjectID, "", "", "", "", 0, "");

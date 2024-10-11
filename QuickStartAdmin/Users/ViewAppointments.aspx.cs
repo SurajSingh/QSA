@@ -200,6 +200,7 @@ namespace QuickStartAdmin.Users
             {
                 blAppointment objda = new blAppointment();
                 ClsGeneral objgen = new ClsGeneral();
+                
                 OnDate = (DateTime.ParseExact(OnDate.ToString(), Convert.ToString(HttpContext.Current.Session["DateFormat"]), CultureInfo.InvariantCulture));
 
                 DataSet ds = objda.GetAppointmentAvailability(true, OnDate, OnDate, 0, Convert.ToInt64(HttpContext.Current.Session["OrgID"]), FKEmpID, "Available");

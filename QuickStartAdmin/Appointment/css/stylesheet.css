@@ -1,0 +1,181 @@
+body{margin: 0px; padding: 0px; background: url(../images/bg3.jpg) repeat; font-family: 'OpenSans';}
+@font-face {
+	font-family: 'OpenSans';
+	src: url('fonts/OpenSans.eot');
+	src: url('fonts/OpenSansd41d.eot?#iefix') format('embedded-opentype'),
+		url('fonts/OpenSans.html') format('woff'),
+		url('fonts/OpenSans.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'OpenSans-Bold';
+	src: url('fonts/OpenSans-Bold.eot');
+	src: url('fonts/OpenSans-Boldd41d.eot?#iefix') format('embedded-opentype'),
+		url('fonts/OpenSans-Bold.html') format('woff'),
+		url('fonts/OpenSans-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'OpenSans-Semibold';
+	src: url('fonts/OpenSans-Semibold.eot');
+	src: url('fonts/OpenSans-Semiboldd41d.eot?#iefix') format('embedded-opentype'),
+		url('fonts/OpenSans-Semibold.html') format('woff'),
+		url('fonts/OpenSans-Semibold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+*{
+    box-sizing:border-box;
+}
+
+a{
+    cursor:pointer;
+    text-decoration:none;
+}
+ul,li{
+    list-style-type:none;
+}
+img{
+    border:0px;
+
+}
+
+.progressdiv {
+    background: #ffffff;
+    height: 100%;
+    left: 0;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1004;
+}
+
+.otherdiv {
+    background: none repeat scroll 0 0 #000000;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+.container{width: 1170px; margin: auto; max-width:100%;}
+.logo{text-align: center; margin: 20px 0;}
+.mainfrom{
+    clear:both;
+    width:1100px;
+    max-width:98%;
+    margin:20px auto;
+    min-height:400px;
+    background: #e2e2e2;
+    padding:20px;
+}
+.graybox{max-width:490px; margin:20px auto;}
+.graybox2{}
+.graybox3{}
+
+.com-hding{font-family: 'OpenSans-Semibold'; font-size: 36px; color: #173967; text-align: center;}
+.com-hding span{font-family: 'OpenSans-Semibold'; font-size: 22px; color: #000000; text-align: center;}
+.msg-hding{font-family: 'OpenSans-Semibold'; font-size: 22px; color: #173967; text-align: center; padding-bottom:25px; padding-top:10%;}
+.msg-hding span {
+    font-size:15px;
+    color:#000000;
+}
+#divtable{max-width:100%;}
+.fielbox{margin:40px 0 20px; text-align: center;}
+.graybox .fielbox{
+  
+    margin:40px auto 20px auto;
+}
+.fielbox label{font-family: 'OpenSans-Semibold'; font-size: 15px; color: #000000;}
+.fielbox select{width: 310px; height: 32px; border: solid 1px #b9b9b9; font-size: 14px; color: #404040; font-family: 'OpenSans-Semibold'; padding-left: 5px; margin-left: 10px;}
+.button {margin: auto; text-align: right;}
+.button a{ display: inline-block;font-size: 13px; color: #fff; font-family: 'OpenSans-Semibold'; padding: 5px 20px; text-align: right; background: #173967; text-decoration: none; transition: all 0.5s ease-in-out 0s;}
+.button a:hover{background: #1e4983;}
+
+.graybox2 .hding{display:block ;text-align: center; font-family: 'OpenSans-Semibold'; font-size: 28px; color: #173967;}
+.graybox2 .lft-right-arow{display: inline-block; float:right;}
+.lft-arow {display: inline-block;}
+.rht-arow {display: inline-block;}
+.graybox2 .lft-right-arow .lft-arow a{display: inline-block; padding: 2px 8px; background: #d7d7d7; border: solid 1px #b9b9b9;}
+.graybox2 .lft-right-arow .rht-arow a{display: inline-block; padding: 2px 8px; background: #d7d7d7; border: solid 1px #b9b9b9;}
+.graybox2 .lft-right-arow a:hover{
+    background:#173967 ;
+}
+
+.table{ margin: 15px auto; width: 100%;}
+.table table {font-family: 'OpenSans-Semibold'; border-collapse: collapse; width: 100%; background: #fff none repeat scroll 0 0;}
+.table th{background-color:#ededed; font-size: 20px;}
+.table td{font-size: 12px; height:390px; vertical-align:top; width:14.2%;}
+    .table td a {clear:both;
+              
+                font-size:15px;
+                color:green;
+
+    }
+    .table td a:hover{color:#173967 ;
+                      text-decoration:underline;
+
+    }
+.table td, th {border: 1px solid #e0e0e0; text-align: center; padding: 8px; height:40px;}
+
+.table .button {float: right; margin: 15px 0 0 10px; width: auto;}
+.table .button a{ display: inline-block;font-size: 12px; color: #fff; font-family: 'OpenSans-Semibold'; padding: 5px 20px; text-align: right; background: #173967; text-decoration: none; transition: all 0.5s ease-in-out 0s;}
+.table .button a:hover{background: #1e4983;}
+
+.clear{clear: both;}
+.fldbox{margin-bottom: 10px;}
+.inputbox{ margin:20px auto; width:460px;max-width:100%;}
+.inputbox label{font-family: 'OpenSans-Semibold'; font-size: 15px; color: #000000; width:150px;float:left;clear:both; margin-top:10px; margin-right:10px;}
+.inputbox input{max-width:100%;margin-top:10px;float:left;width: 300px; height: 32px; border: solid 1px #b9b9b9; font-size: 14px; color: #404040; font-family: 'OpenSans-Semibold'; padding-left: 5px; }
+.inputbox select{max-width:100%;margin-top:10px;width:300px; height: 32px; border: solid 1px #b9b9b9; font-size: 14px; color: #404040; font-family: 'OpenSans-Semibold'; padding-left: 5px;
+                  }
+.inputbox .txttime{
+    width:130px;
+    cursor:pointer;
+    max-width:99%;
+}
+.inputbox .timetext{
+    float:left;
+    display:block;
+    margin-top:10px;
+    padding:0px;
+    width:40px;
+    text-align:center;
+} 
+footer{background: #173967;  color: #fff;
+    font-size: 13px;
+    line-height: 35px;
+    margin: 0 auto;
+    max-width: 98%;
+    text-align: center;
+    width: 1100px;}
+
+
+
+
+
+@media (max-width:543px){
+    .inputbox label{width:100%;}
+    .inputbox .txttime{width:45%;}
+    .inputbox .timetext{width:10%;}
+	.button{text-align: center;}
+	.graybox .fielbox {margin: 10px auto;}
+	.mainfrom{min-height: auto;}
+	.com-hding span{font-size: 15px;}
+	.com-hding{font-size: 20px;}
+	.fielbox select{margin-left:0px; width: 245px;}
+	footer{font-size: 10px;}
+	.fielbox label{display: block;}
+		}	
+
+
+
+

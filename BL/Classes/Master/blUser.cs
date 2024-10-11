@@ -114,7 +114,11 @@ namespace BL.Master
                 PhotoURL, IPAddress, MACAdd, FKPageID);
             return db.ExecuteDataSet(dbcommand);
         }
-
+        public DataSet ResetPasswordByPKUserId()
+        {
+            dbcommand = db.GetStoredProcCommand("uspResetPasswordByPKUserId", PKUserID, PWDNew);
+            return db.ExecuteDataSet(dbcommand);
+        }
         public DataSet ValidateResetPasswordToken(string ResetPwdToken)
         {
             dbcommand = db.GetStoredProcCommand("uspValidateResetPasswordToken", ResetPwdToken);
@@ -129,11 +133,6 @@ namespace BL.Master
         public DataSet ChangePassword()
         {
             dbcommand = db.GetStoredProcCommand("uspChangePassword", PKUserID, PWD, PWDNew);
-            return db.ExecuteDataSet(dbcommand);
-        }
-        public DataSet ResetPasswordByPKUserId()
-        {
-            dbcommand = db.GetStoredProcCommand("uspResetPasswordByPKUserId", PKUserID, PWDNew);
             return db.ExecuteDataSet(dbcommand);
         }
         public DataSet UpdatePassword()

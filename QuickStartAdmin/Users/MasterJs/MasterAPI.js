@@ -150,7 +150,7 @@ function FunFillNotification() {
                         if (this.FromDate != this.ToDate) {
                             strDate = 'From ' + strDate + ' to ' + this.ToDate;
                         }
-                        if (jsonarr.data.Table[0].FromTime != '') {
+                        if (jsonarr.data.Table1[0].FromTime != '') {
                             strDate = strDate + ' @' + this.FromTime
                         }
 

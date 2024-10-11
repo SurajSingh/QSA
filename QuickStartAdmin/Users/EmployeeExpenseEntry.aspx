@@ -167,12 +167,11 @@
                                 <th class="tdFKTaskID">Expense</th>
                                 <th class="tdDescription">Description</th>
                                 <th class="tdUnit" style="width: 70px; text-align: right;">Unit</th>
-                                <%if (Session["RoleType"].ToString() == "Admin")
-                                    { %>
+                                
                                 <th class="tdTCostRate" style="width: 80px; text-align: right;">Cost Rate</th>
                                 <th class="tdMU" style="width: 80px; text-align: right;">MU%</th>
                                 <th class="tdAmount" style="width: 80px; text-align: right;">Amount</th>
-                                <% } %>
+                               
                                 <th class="tdIsBillable" style="width: 30px; text-align: center;" title="is Billable">B</th>
                                 <th class="tdIsReimb" style="width: 30px; text-align: center;" title="is Reimbursable">R</th>
                                 <th class="tdMemo" style="width: 60px;">&nbsp;</th>
@@ -193,12 +192,11 @@
                                 <th class="tdFKTaskID"></th>
                                 <th class="tdDescription"></th>
                                 <th class="tdUnit" style="text-align: right;"></th>
-                                <%if (Session["RoleType"].ToString() == "Admin")
-                                    { %>
+                               
                                 <th class="tdTCostRate"></th>
                                 <th class="tdMU"></th>
                                 <th class="tdAmount" style="text-align: right;"></th>
-                                <% } %>
+                               
                                 <th class="tdIsBillable"></th>
                                 <th class="tdIsReimb"></th>
                                 <th class="tdMemo">&nbsp;</th>

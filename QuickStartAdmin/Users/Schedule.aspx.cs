@@ -89,7 +89,8 @@ namespace QuickStartAdmin.Users
                 ClsGeneral objgen = new ClsGeneral();
                 var dresult = DateRange.getLastDates(daterange, FromDate, ToDate, Convert.ToString(HttpContext.Current.Session["DateFormat"]));
 
-                if (!ClsLogin.ValidateRole((Int32)ClsRoles.UserRoles.Schedule, ClsRoles.IsAdd))
+                //if (!ClsLogin.ValidateRole((Int32)ClsRoles.UserRoles.Schedule, ClsRoles.IsAdd))
+                if (Convert.ToString(HttpContext.Current.Session["RoleType"]) != "Admin")
                 {
                     FKEmpID = Convert.ToString(HttpContext.Current.Session["UserID"]);
                 }

@@ -517,10 +517,10 @@ function SetTimePicker(id) {
     $('#' + id).timepicker({
         timeFormat: 'h:mm p',
         interval: 60,
-        minTime: '10',
-        maxTime: '6:00pm',
-        defaultTime: '11',
-        startTime: '10:00',
+        minTime: '8',
+        maxTime: '5:00pm',
+        defaultTime: '9',
+        startTime: '8:00',
         dynamic: false,
         dropdown: true,
         scrollbar: true

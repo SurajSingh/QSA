@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.7.1213\lib\45\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Aspose.PDF, Version=22.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Aspose.PDF.dll</HintPath>
@@ -61,11 +64,13 @@
     <Reference Include="Hangfire.SqlServer, Version=1.8.14.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hangfire.SqlServer.1.8.14\lib\net451\Hangfire.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="itextsharp">
-      <HintPath>..\BLGeneral\bin\itextsharp.dll</HintPath>
+    <Reference Include="itextsharp, Version=5.5.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="itextsharp.xmlworker">
-      <HintPath>..\BLGeneral\bin\itextsharp.xmlworker.dll</HintPath>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\itextsharp.xmlworker.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -194,6 +199,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.html" />
+    <Content Include="Appointment\css\flickity.css" />
+    <Content Include="Appointment\css\jquery-ui.css" />
+    <Content Include="Appointment\css\mobStyleSheet.css" />
+    <Content Include="Appointment\css\owl.carousel.min.css" />
+    <Content Include="Appointment\css\stylesheet.css" />
+    <Content Include="Appointment\css\stylesheet2.0.css" />
+    <Content Include="Appointment\css\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Appointment\Default.aspx" />
+    <Content Include="Appointment\error.html" />
+    <Content Include="Appointment\images\bg.jpg" />
+    <Content Include="Appointment\images\bg2.jpg" />
+    <Content Include="Appointment\images\bg3.jpg" />
+    <Content Include="Appointment\images\calendar.png" />
+    <Content Include="Appointment\images\left-arow.png" />
+    <Content Include="Appointment\images\loading.gif" />
+    <Content Include="Appointment\images\logonew.png" />
+    <Content Include="Appointment\images\right-arow.png" />
+    <Content Include="Appointment\images\ui-icons_222222_256x240.png" />
+    <Content Include="Appointment\js\flickity.pkgd.min.js" />
+    <Content Include="Appointment\js\jquery-1.10.2.js" />
+    <Content Include="Appointment\js\jquery-ui.js" />
+    <Content Include="Appointment\js\jquery.bxslider.min.js" />
+    <Content Include="Appointment\js\jquery.diyslider.min.js" />
+    <Content Include="Appointment\js\jquery.min.js" />
+    <Content Include="Appointment\js\jquery.timepicker.css" />
+    <Content Include="Appointment\js\jquery.timepicker.js" />
+    <Content Include="Appointment\js\owl.carousel.js" />
+    <Content Include="Appointment\js\validate2.3.js" />
+    <Content Include="Appointment\MobDefault.aspx" />
+    <Content Include="Appointment\progressbar.ascx" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\fonts\fontawesome-webfont3295.svg" />
@@ -223,6 +258,17 @@
     <Content Include="img\fonts\Proxima_Nova_Semibold.svg" />
     <Content Include="img\fonts\Proxima_Nova_Semibold_Italic.svg" />
     <Content Include="img\fonts\startui.svg" />
+    <Content Include="Appointment\AppointmentMaster.Master" />
+    <Content Include="Appointment\css\fonts\OpenSans-Bold.eot" />
+    <Content Include="Appointment\css\fonts\OpenSans-Bold.ttf" />
+    <Content Include="Appointment\css\fonts\OpenSans-Bold.woff" />
+    <Content Include="Appointment\css\fonts\OpenSans-Semibold.eot" />
+    <Content Include="Appointment\css\fonts\OpenSans-Semibold.ttf" />
+    <Content Include="Appointment\css\fonts\OpenSans-Semibold.woff" />
+    <Content Include="Appointment\css\fonts\OpenSans.eot" />
+    <Content Include="Appointment\css\fonts\OpenSans.ttf" />
+    <Content Include="Appointment\css\fonts\OpenSans.woff" />
+    <Content Include="Appointment\MobileMaster.Master" />
     <None Include="img\login.css.unused" />
     <Content Include="img\loginbg-min.png" />
     <Content Include="img\loginbg.png" />
@@ -235,7 +281,7 @@
     <Content Include="Login.aspx" />
     <Content Include="README.txt" />
     <Content Include="ResetPassword.aspx" />
-    <Content Include="ResetPasswordByEmailSend.aspx" />
+    <Content Include="ResetPass.aspx" />
     <Content Include="Users\Announcements.aspx" />
     <Content Include="Users\ApproveLeaveRequest.aspx" />
     <Content Include="Users\AssetMaster.aspx" />
@@ -1820,6 +1866,41 @@
     <Compile Include="API\CheckLoginController.cs" />
     <Compile Include="API\LoginController.cs" />
     <Compile Include="API\TimesheetController.cs" />
+    <Compile Include="Appointment\AppointmentMaster.Master.cs">
+      <DependentUpon>AppointmentMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appointment\AppointmentMaster.Master.designer.cs">
+      <DependentUpon>AppointmentMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appointment\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\MobDefault.aspx.cs">
+      <DependentUpon>MobDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appointment\MobDefault.aspx.designer.cs">
+      <DependentUpon>MobDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\MobileMaster.Master.cs">
+      <DependentUpon>MobileMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appointment\MobileMaster.Master.designer.cs">
+      <DependentUpon>MobileMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment\progressbar.ascx.cs">
+      <DependentUpon>progressbar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appointment\progressbar.ascx.designer.cs">
+      <DependentUpon>progressbar.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\ClsCommon.cs" />
     <Compile Include="Classes\ClsDataCache.cs" />
     <Compile Include="Classes\ClsDrawing.cs" />
@@ -1852,12 +1933,12 @@
     <Compile Include="ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ResetPasswordByEmailSend.aspx.cs">
-      <DependentUpon>ResetPasswordByEmailSend.aspx</DependentUpon>
+    <Compile Include="ResetPass.aspx.cs">
+      <DependentUpon>ResetPass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ResetPasswordByEmailSend.aspx.designer.cs">
-      <DependentUpon>ResetPasswordByEmailSend.aspx</DependentUpon>
+    <Compile Include="ResetPass.aspx.designer.cs">
+      <DependentUpon>ResetPass.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Users\Announcements.aspx.cs">

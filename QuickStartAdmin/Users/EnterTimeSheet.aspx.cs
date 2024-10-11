@@ -306,7 +306,12 @@ namespace QuickStartAdmin.Users
             {
                 DataRow dr = dtNew.NewRow();
                 string taskDate = row["Date"].ToString() ?? "";
-                string taskCode = row["Task Code"].ToString() ?? "";
+                string taskCodeName = row["Task Code"].ToString() ?? "";
+                char[] delimeters = { ':', '-' };
+                string[] taskCodeArr = taskCodeName.Split(delimeters);
+
+                string taskCode = taskCodeArr.Length >= 2 ? taskCodeArr[0] : "";
+                string taskName = taskCodeArr.Length >= 2 ? taskCodeArr[1] : "";
                 string projectCode = row["Project Code"].ToString() ?? "";
                 string hrs = row["Hrs"].ToString() ?? "";
                 string memo = row["Memo"].ToString() ?? "";
@@ -320,7 +325,7 @@ namespace QuickStartAdmin.Users
                 if (userId == null || userId == 0)
                     errorMsg.Append($"Invalid login id '{loginId}' on {taskDate};<br>");
 
-                long? taskId = dtTasks.AsEnumerable().FirstOrDefault(a => a.Field<string>("TaskCode").Equals(taskCode) || a.Field<string>("TaskName").Equals(taskCode))?.Field<long>("PKID");
+                long? taskId = dtTasks.AsEnumerable().FirstOrDefault(a => a.Field<string>("TaskCode").Equals(taskCode) && a.Field<string>("TaskName").Equals(taskName))?.Field<long>("PKID");
                 if (taskId == null || taskId == 0)
                     errorMsg.Append($"Invalid task code '{taskCode}' on {taskDate};<br>");
 
@@ -338,7 +343,7 @@ namespace QuickStartAdmin.Users
                     decimal costRate = 0.0m;
                     bool isBillable = false;
                     decimal bHours = 0.0m;
-                    DataRow drTask = dtTasks.AsEnumerable().FirstOrDefault(a => a.Field<string>("TaskCode").Equals(taskCode) || a.Field<string>("TaskName").Equals(taskCode));
+                    DataRow drTask = dtTasks.AsEnumerable().FirstOrDefault(a => a.Field<string>("TaskCode").Equals(taskCode) && a.Field<string>("TaskName").Equals(taskName));
 
                     if (drTask != null)
                     {

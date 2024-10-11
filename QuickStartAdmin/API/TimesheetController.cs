@@ -88,9 +88,9 @@ namespace QuickStartAdmin.API
 
     public class tsClient
     {
-        public string ClientCode { get; set; }
+        public string ProjectCode { get; set; }
 
-        public string ClientName { get; set; }
+        public string ProjectName { get; set; }
     }
 
 
@@ -201,8 +201,8 @@ namespace QuickStartAdmin.API
                     foreach (DataRow r in ds.Tables[0].Rows)
                     {
                         tsClient loClient = new tsClient();
-                        loClient.ClientCode = r["clientCode"].ToString();
-                        loClient.ClientName = r["clientName"].ToString();
+                        loClient.ProjectCode = r["projectCode"].ToString();
+                        loClient.ProjectName = r["projectName"].ToString();
 
 
                         tsClients.Add(loClient);

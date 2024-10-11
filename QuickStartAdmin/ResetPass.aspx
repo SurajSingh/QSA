@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResetPasswordByEmailSend.aspx.cs" Inherits="QuickStartAdmin.ResetPasswordByEmailSend" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResetPass.aspx.cs" Inherits="QuickStartAdmin.ResetPasswordByEmailSend" %>
 
 <!DOCTYPE html>
 
@@ -43,7 +43,7 @@
                             <img src="/img/qsalogo.png" class="mobile-logo">
                             <span class="login100-form-title">Reset Password
                             </span>
-                            <p class="login-text">Please Enter your Username and Password to Sign in.</p>
+                            <p class="login-text">Please Enter New Password.</p>
                             <div class="wrap-input100 validate-input">
                                 <asp:TextBox ID="txtNewPassword" runat="server" placeholder="New Password" TextMode="Password" CssClass="input100" ClientIDMode="Static"></asp:TextBox>
                                 <span class="focus-input100"></span>

@@ -22,7 +22,7 @@ namespace QuickStartAdmin
             if (txtLoginID.Text != "")
             {
                 DataSet ds = new DataSet();
-               
+
                 objda.LoginID = txtLoginID.Text;
                 objda.IPAddress = Classes.ClsLogin.GetRequestIP();
                 objda.MACAdd = ClsGeneral.GetRequestMACAddr();
@@ -42,22 +42,22 @@ namespace QuickStartAdmin
                 if (Convert.ToInt32(ds.Tables[0].Rows[0]["Result"]) == 1)
                 {
                     int id = Convert.ToInt32(ds.Tables[0].Rows[0]["PKUserID"]);
-                    string resetPageUrl = $"http://localhost:51946/ResetPasswordByEmailSend.aspx?UserId={id}";
-
+                    string siteUrl = ConfigurationManager.AppSettings["WebURL"];
+                    string resetPageUrl = $"{siteUrl}resetpass.aspx?id={id}";
+                    string emailTo = "surajsingh.bhati97@gmail.com"; //ds.Tables[0].Rows[0]["EmailID"].ToString();
                     EmailData emailData = new EmailData
                     {
                         SenderEmail = ConfigurationManager.AppSettings["SenderMail"],
                         SenderPWD = ConfigurationManager.AppSettings["SenderPass"],
                         SMTPServer = ConfigurationManager.AppSettings["MailHost"],
-                        SMTPPort = 587,
+                        SMTPPort = Convert.ToInt32(ConfigurationManager.AppSettings["SenderPort"]),
                         EnableSSL = Convert.ToBoolean(ConfigurationManager.AppSettings["EnableSSL"]),
-                        To = ds.Tables[0].Rows[0]["EmailID"].ToString(),
+                        To = emailTo,
                         Subject = "Password Reset Request",
                         Message = $"Please click the following link to reset your password: {resetPageUrl}"
                     };
 
-                    ClsSendSMSEmail.SendEmailAsync(emailData);
-
+                    string result = ClsSendSMSEmail.SendEmailAsync(emailData);
                     //send email to user with the reset password link
                     divforgotpassword.Visible = false;
                     divnotify.Visible = true;

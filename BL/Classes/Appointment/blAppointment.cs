@@ -1,9 +1,24 @@
 ﻿using System;
 using System.Data;
+using System.Security.AccessControl;
+
 namespace BL.Appointment
 {
     public class blAppointment : DAL.clsDAL
     {
+
+        public DataSet GetAvailability(int EmpID, object OnDate)
+        {
+            dbcommand = db.GetStoredProcCommand("uspGetAvailability", EmpID.ToString(), OnDate);
+            return db.ExecuteDataSet(dbcommand);
+        }
+
+        public DataSet ManageAvailability(int pkID)
+        {
+            dbcommand = db.GetStoredProcCommand("uspManageAvailability", pkID.ToString());
+            return db.ExecuteDataSet(dbcommand);
+        }
+
         public DataSet GetAppointmentAvailability(bool DateWise, object FromDate, object ToDate, Int64 PKID, Int64 FKCompanyID, Int64 FKEmpID,string RecType)
         {
             dbcommand = db.GetStoredProcCommand("uspGetAppointmentAvailability", DateWise, FromDate, ToDate, PKID, FKCompanyID, FKEmpID, RecType);

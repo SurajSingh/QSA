@@ -20,8 +20,8 @@ namespace QuickStartAdmin
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (Request.QueryString["UserId"] != null)
-                userId = Convert.ToInt32(Request.QueryString["UserId"]);
+            if (Request.QueryString["id"] != null)
+                userId = Convert.ToInt32(Request.QueryString["id"]);
 
             DataSet ds = new DataSet();
             if (txtNewPassword.Text != "")

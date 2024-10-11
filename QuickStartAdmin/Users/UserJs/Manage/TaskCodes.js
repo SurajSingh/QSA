@@ -43,6 +43,7 @@ function FunFillData(NewPageSize, OffSet, SortBy, SortDir, ExportType) {
                 HideLoader();
                 if (jsonarr.data.Table.length > 0) {
                     if (jsonarr.data.Table[0].Result == "1") {
+
                         if (ExportType == null || ExportType == "") {
                             var i = 0;
 

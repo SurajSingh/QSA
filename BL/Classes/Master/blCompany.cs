@@ -77,11 +77,17 @@ namespace BL.Master
             dbcommand = db.GetStoredProcCommand("uspInsertEmailSettings", PKCompanyID, SenderEmail, SenderPWD, SMTPServer, SMTPPort, EnableSSL);
             return db.ExecuteDataSet(dbcommand);
         }
+        public DataSet GetCompanybyId()
+        {
+            dbcommand = db.GetSqlStringCommand(string.Format("SELECT * FROM tblCompany WHERE CompanyID = '{0}'", CompanyID));
+            return db.ExecuteDataSet(dbcommand);
+        }
         public DataSet GetCompany()
         {
             dbcommand = db.GetStoredProcCommand("uspGetCompany", PKCompanyID);
             return db.ExecuteDataSet(dbcommand);
         }
+
         public DataSet GetBranch()
         {
             dbcommand = db.GetStoredProcCommand("uspGetBranch", PKBranchID, PKCompanyID,DiffParty);

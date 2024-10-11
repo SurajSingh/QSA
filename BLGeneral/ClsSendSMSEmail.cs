@@ -59,9 +59,9 @@ namespace BLGeneral.Message
         {
             Task.Factory.StartNew(() => SendSMS(ObjectSMSData));
         }
-        public static void SendEmailAsync(EmailData ObjectEmailDat)
+        public static string SendEmailAsync(EmailData ObjectEmailDat)
         {
-            Task.Factory.StartNew(() => SendEmail(ObjectEmailDat));
+           return SendEmail(ObjectEmailDat);
         }
 
         public static string SendEmailSync(EmailData ObjectEmailDat)

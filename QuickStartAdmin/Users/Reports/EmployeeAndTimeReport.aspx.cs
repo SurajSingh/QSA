@@ -79,7 +79,7 @@ namespace QuickStartAdmin.Users.Reports
                 path = AppDomain.CurrentDomain.BaseDirectory + "\\Users\\RDLC\\DesignFiles\\Reports\\ClientReport\\ExpensesbyItem.rdlc";
                 RecType = "Expenses";
                 StrReportName = "Expenses by Item";
-                ColStr = "[TaskDate],[Hrs],[Description],[IsBillable],[TBHours],[TCostRate],[TBillRate],[BillAmt],[CostAmt],[Amount],[ProjectCode],[ProjectName],[TaskName],[BHours],[ClientCode],[ClientName],[EmpName],[LoginID],[ManagerName],[MU],[Profit],[IsReimb]";
+                ColStr = "[TaskDate],[Hrs],[Description],[IsBillable],[TBHours],[TCostRate],[TBillRate],[BillAmt],[CostAmt],[Amount],[ProjectCode],[ProjectName],[TaskName],[BHours],[ClientCode],[ClientName],[EmpName],[LoginID],[ManagerName],[MU],[Profit],[IsReimb],[ReimbCostDe]";
 
                 SortBy = "ClientCode";
             }
@@ -88,7 +88,7 @@ namespace QuickStartAdmin.Users.Reports
                 path = AppDomain.CurrentDomain.BaseDirectory + "\\Users\\RDLC\\DesignFiles\\Reports\\ClientReport\\ExpensesbyItem.rdlc";
                 RecType = "Expenses";
                 StrReportName = "Expenses by Item";
-                ColStr = "[TaskDate],[Hrs],[Description],[IsBillable],[TBHours],[TCostRate],[TBillRate],[BillAmt],[CostAmt],[Amount],[ProjectCode],[ProjectName],[TaskName],[BHours],[ClientCode],[ClientName],[EmpName],[LoginID],[ManagerName],[MU],[Profit],[IsReimb]";
+                ColStr = "[TaskDate],[Hrs],[Description],[IsBillable],[TBHours],[TCostRate],[TBillRate],[BillAmt],[CostAmt],[Amount],[ProjectCode],[ProjectName],[TaskName],[BHours],[ClientCode],[ClientName],[EmpName],[LoginID],[ManagerName],[MU],[Profit],[IsReimb],[ReimbCostDe]";
 
                 SortBy = "ClientCode";
             }
@@ -97,7 +97,7 @@ namespace QuickStartAdmin.Users.Reports
                 path = AppDomain.CurrentDomain.BaseDirectory + "\\Users\\RDLC\\DesignFiles\\Reports\\EmployeeReport\\EmployeeExpensesReport.rdlc";
                 RecType = "Expenses";
                 StrReportName = "Employee Expenses Report";
-                ColStr = "[TaskDate],[Hrs],[Description],[IsBillable],[TBHours],[TCostRate],[TBillRate],[BillAmt],[CostAmt],[Amount],[ProjectCode],[ProjectName],[TaskName],[BHours],[ClientCode],[ClientName],[EmpName],[LoginID],[ManagerName],[MU],[Profit],[IsReimb]";
+                ColStr = "[TaskDate],[Hrs],[Description],[IsBillable],[TBHours],[TCostRate],[TBillRate],[BillAmt],[CostAmt],[Amount],[ProjectCode],[ProjectName],[TaskName],[BHours],[ClientCode],[ClientName],[EmpName],[LoginID],[ManagerName],[MU],[Profit],[IsReimb],[ReimbCostDe]";
 
                 SortBy = "ClientCode";
             }

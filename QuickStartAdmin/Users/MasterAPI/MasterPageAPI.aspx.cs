@@ -371,6 +371,12 @@ namespace QuickStartAdmin.Users.MasterAPI
             {
                 blGetMaster objda = new blGetMaster();
                 ClsGeneral objgen = new ClsGeneral();
+
+                if (Convert.ToString(HttpContext.Current.Session["RoleType"]) != "Admin")
+                {
+                    PKID = Convert.ToInt64(HttpContext.Current.Session["UserID"]);
+                }
+
                 DataSet ds = objda.GetEmpForAutoComplate(PKID, ActiveStatus, Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
                 if (ds.Tables.Count > 0)
                 {

@@ -165,6 +165,10 @@
           <DataField>Profit</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="ReimbCostDe">
+          <DataField>ReimbCostDe</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsTimesheet</rd:DataSetName>
@@ -673,7 +677,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Sum(IIF(Convert.ToBoolean(Fields!IsReimb.Value),Fields!CostAmt.Value,0.00))</Value>
+                                      <Value>=Sum(Fields!ReimbCostDe.Value)</Value>
                                       <Style>
                                         <FontFamily>Century Gothic</FontFamily>
                                         <FontSize>9pt</FontSize>
@@ -973,7 +977,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(IIF(Convert.ToBoolean(Fields!IsReimb.Value),Fields!CostAmt.Value,0.00))</Value>
+                    <Value>=Sum(Fields!ReimbCostDe.Value)</Value>
                     <Style>
                       <FontFamily>Century Gothic</FontFamily>
                       <FontSize>9pt</FontSize>

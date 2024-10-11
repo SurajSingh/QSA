@@ -31,17 +31,17 @@ function AddNewDetailRow() {
     NewRow += '<td class="tdFKTaskID"> <input type="text" id="txtFKTaskID' + trID + '" class="form-control"   /></td>';
     NewRow += '<td class="tdDescription"> <input type="text" id="txtDescription' + trID + '" class="form-control"  readonly="readonly" /></td>';
     NewRow += '<td class="tdUnit"> <input type="text" id="txtUnit' + trID + '" class="form-control" style="text-align:right;"   /></td>';
-    if (roleType == "Admin") {
+    //if (roleType == "Admin") {
         NewRow += '<td class="tdTCostRate"> <input type="text" id="txtTCostRate' + trID + '" class="form-control"  style="text-align:right;"  /></td>';
         NewRow += '<td class="tdMU"> <input type="text" id="txtMU' + trID + '" class="form-control"  style="text-align:right;" /></td>';
         NewRow += '<td class="tdAmount"> <input type="text" id="txtAmount' + trID + '" class="form-control"  style="text-align:right;"  /></td>';
         NewRow += '<td class="tdIsBillable" style="text-align:center;"> <input type="checkbox" class="form-check-input" id="chkIsBillable' + trID + '"  /></td>';
         NewRow += '<td class="tdIsReimb" style="text-align:center;"> <input type="checkbox" class="form-check-input" id="chkIsReimb' + trID + '"  /></td>';
-    }
-    else {
-        NewRow += '<td class="tdIsBillable" style="text-align:center;"> <input type="checkbox" class="form-check-input" id="chkIsBillable' + trID + '" onclick="return false" /></td>';
-        NewRow += '<td class="tdIsReimb" style="text-align:center;"> <input type="checkbox" class="form-check-input" id="chkIsReimb' + trID + '" onclick="return false" /></td>';
-    }
+    //}
+    //else {
+     //   NewRow += '<td class="tdIsBillable" style="text-align:center;"> <input type="checkbox" class="form-check-input" id="chkIsBillable' + trID + '" onclick="return false" /></td>';
+    //    NewRow += '<td class="tdIsReimb" style="text-align:center;"> <input type="checkbox" class="form-check-input" id="chkIsReimb' + trID + '" onclick="return false" /></td>';
+    //}
 
 
     NewRow += '<td class="tdMemo" style="text-align:center;"> <a class="tbllink" id="linkMemo' + trID + '"  title="View Memo">Memo</a><div  id="divMemo' + trID + '" style="display:none;"></div></td>';
@@ -58,7 +58,7 @@ function AddNewDetailRow() {
         var rowNumber = $(this).attr("id");
         rowNumber = rowNumber.replace("linkDelete", "");
         newId = $("#hidPKID" + rowNumber).val();
-        if (newID == 0) {
+        if (newId == 0) {
             $('#' + rowNumber).remove()
         }
         else {
@@ -709,9 +709,6 @@ function FunFillData() {
 
                     }
 
-
-
-
                 });
                 if ($("#dropFKEmpIDSrch").val() != '') {
                     AddNewDetailRow();
@@ -746,9 +743,9 @@ function FunSetPageRoles() {
     if (BillableCheckUncheckInExpenseEntry == false) {
         $('#tblTimeSheet').find('.tdIsBillable').find('input').prop('disabled', true);
     }
-    if (ReimbursableCheckUncheckInExpenseEntry == false) {
-        $('#tblTimeSheet').find('.tdIsReimb').hide();
-    }
+    //if (ReimbursableCheckUncheckInExpenseEntry == false) {
+        //$('#tblTimeSheet').find('.tdIsReimb').hide();
+    //}
 
     if (IsApprove == false) {
         $('#tblTimeSheet').find('.tdApprove').hide();

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.IO;
@@ -150,7 +151,8 @@ namespace BLGeneral
         {
             return DateTime.Now.ToString(UserDateFormat);
         }
-        public static DateTime GetLocalDateTime()
+
+        public static DateTime GetLocalDate()
         {
             return DateTime.Now;
         }
