@@ -15,6 +15,7 @@ namespace BL.Report
         public DataSet GetTimeandExpReport(Int64 PageSize, Int64 PageNo, string SortBy, string SortDir, string ColStr, bool DateWise, object FromDate, object ToDate, Int64 PKID, Int64 FKCompanyID, string FKEmpID, string FKClientID, string FKProjectID, string FKTaskID,Int64 FKManagerID, string ApproveStatus, string Billed, string Billable, string RecType)
         {
             dbcommand = db.GetStoredProcCommand("uspGetTimeandExpReport", PageSize, PageNo, SortBy, SortDir, ColStr, DateWise, FromDate, ToDate, PKID, FKCompanyID, FKEmpID, FKClientID, FKProjectID, FKTaskID, FKManagerID, ApproveStatus, Billed, Billable, RecType);
+            dbcommand.CommandTimeout = 0;
             return db.ExecuteDataSet(dbcommand);
 
 

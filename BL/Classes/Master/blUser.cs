@@ -9,8 +9,8 @@ namespace BL.Master
 {
     public class blUser : DAL.clsDAL
     {
-        private Int64 _FKCurrencyID,_FKManagerID, _FKSubmitToID,_FKParentID, _FKDashboardID, _FKTahsilID, _FKCityID, _FKStateID, _FKCountryID, _PKUserID, _PKRoleGroupID, _FKRoleGroupID, _FKDeptID, _FKDesigID, _FKTimeZoneID, _FKCompanyID, _FKBranchID;
-        private string _AddressTitle,_PayPeriod, _Remark, _Gender, _FName, _MName, _LName, _EnrollNo,_Address1, _Address2, _ZIP,_OrgTypeID, _BranchStr, _DtRoleXML,_GroupName, _LoginID, _EmailID, _PWD, _PWDNew, _Name, _MobNo, _Phone1, _Phone2, _RoleType, _RecordType, _ActiveStatus, _PhotoURL;
+        private Int64 _FKCurrencyID, _FKManagerID, _FKSubmitToID, _FKParentID, _FKDashboardID, _FKTahsilID, _FKCityID, _FKStateID, _FKCountryID, _PKUserID, _PKRoleGroupID, _FKRoleGroupID, _FKDeptID, _FKDesigID, _FKTimeZoneID, _FKCompanyID, _FKBranchID;
+        private string _AddressTitle, _PayPeriod, _Remark, _Gender, _FName, _ProjectIds, _MName, _LName, _EnrollNo, _Address1, _Address2, _ZIP, _OrgTypeID, _BranchStr, _DtRoleXML, _GroupName, _LoginID, _EmailID, _PWD, _PWDNew, _Name, _MobNo, _Phone1, _Phone2, _RoleType, _RecordType, _ActiveStatus, _PhotoURL;
         private bool _IsDefaultUser, _ForAppointment;
         object _DOB, _JoinDate, _ReleasedDate;
         decimal _BillRate, _PayRate, _OverTimeBillRate, _OverTimePayrate, _OverheadMulti, _SalaryAmount;
@@ -21,7 +21,7 @@ namespace BL.Master
         public decimal OverTimeBillRate { get { return this._OverTimeBillRate; } set { this._OverTimeBillRate = value; } }
         public decimal OverTimePayrate { get { return this._OverTimePayrate; } set { this._OverTimePayrate = value; } }
         public decimal OverheadMulti { get { return this._OverheadMulti; } set { this._OverheadMulti = value; } }
-       
+
         public decimal SalaryAmount { get { return this._SalaryAmount; } set { this._SalaryAmount = value; } }
 
         public object DOB { get { return this._DOB; } set { this._DOB = value; } }
@@ -42,8 +42,8 @@ namespace BL.Master
         }
         public Int64 FKParentID { get { return this._FKParentID; } set { this._FKParentID = value; } }
         public Int64 PKUserID { get { return this._PKUserID; } set { this._PKUserID = value; } }
-        public Int64 FKRoleGroupID { get { return this._FKRoleGroupID; } set { this._FKRoleGroupID = value; } }       
-        public Int64 FKCompanyID { get { return this._FKCompanyID; } set { this._FKCompanyID = value; } }     
+        public Int64 FKRoleGroupID { get { return this._FKRoleGroupID; } set { this._FKRoleGroupID = value; } }
+        public Int64 FKCompanyID { get { return this._FKCompanyID; } set { this._FKCompanyID = value; } }
         public Int64 PKRoleGroupID { get { return this._PKRoleGroupID; } set { this._PKRoleGroupID = value; } }
 
         public Int64 FKDeptID { get { return this._FKDeptID; } set { this._FKDeptID = value; } }
@@ -75,20 +75,21 @@ namespace BL.Master
         public string RoleType { get { return this._RoleType; } set { this._RoleType = value.Trim(); } }
         public string RecordType { get { return this._RecordType; } set { this._RecordType = value.Trim(); } }
         public string ActiveStatus { get { return this._ActiveStatus; } set { this._ActiveStatus = value.Trim(); } }
-        
+
         public string PhotoURL { get { return this._PhotoURL; } set { this._PhotoURL = value.Trim(); } }
-        public string GroupName { get { return this._GroupName; } set { this._GroupName = value.Trim(); } }     
+        public string GroupName { get { return this._GroupName; } set { this._GroupName = value.Trim(); } }
         public string DtRoleXML { get { return this._DtRoleXML; } set { this._DtRoleXML = value.Trim(); } }
         public string FName { get { return this._FName; } set { this._FName = value.Trim(); } }
         public string MName { get { return this._MName; } set { this._MName = value.Trim(); } }
         public string LName { get { return this._LName; } set { this._LName = value.Trim(); } }
         public string EnrollNo { get { return this._EnrollNo; } set { this._EnrollNo = value.Trim(); } }
+        public string ProjectIds { get { return this._ProjectIds; } set { this._ProjectIds = value.Trim(); } }
         #endregion
 
         #region Methods
         public DataSet InsertRoleGroup()
         {
-            dbcommand = db.GetStoredProcCommand("uspInsertRoleGroup", PKRoleGroupID, GroupName,OrgTypeID, FKCompanyID, DtRoleXML, FKUserID, FKPageID, IPAddress);
+            dbcommand = db.GetStoredProcCommand("uspInsertRoleGroup", PKRoleGroupID, GroupName, OrgTypeID, FKCompanyID, DtRoleXML, FKUserID, FKPageID, IPAddress);
             return db.ExecuteDataSet(dbcommand);
         }
         public DataSet DeleteRoleGroup()
@@ -98,13 +99,13 @@ namespace BL.Master
         }
         public DataSet GetAllRoleGroup()
         {
-            dbcommand = db.GetStoredProcCommand("uspGetAllRoleGroup", PKRoleGroupID, OrgTypeID,FKCompanyID);
+            dbcommand = db.GetStoredProcCommand("uspGetAllRoleGroup", PKRoleGroupID, OrgTypeID, FKCompanyID);
             return db.ExecuteDataSet(dbcommand);
         }
         public DataSet InsertUser()
         {
             dbcommand = db.GetStoredProcCommand("uspInsertUser", PKUserID, LoginID, EmailID, PWD, FName, MName, LName, EnrollNo, DOB, Gender, MobNo, Phone1, Phone2, AddressTitle, Address1, Address2, FKTahsilID, FKCityID, FKStateID, FKCountryID, ZIP, JoinDate, ReleasedDate, FKManagerID, FKSubmitToID, OrgTypeID, RoleType, FKRoleGroupID, FKCompanyID, FKDeptID, FKDesigID, FKTimeZoneID, Remark, ForAppointment, IsDefaultUser, FKDashboardID, ActiveStatus, BillRate, PayRate, OverTimeBillRate, OverTimePayrate, OverheadMulti, FKCurrencyID, PayPeriod, SalaryAmount,
-               FKUserID,IPAddress, MACAdd, FKPageID);
+               FKUserID, IPAddress, MACAdd, FKPageID, ProjectIds);
             return db.ExecuteDataSet(dbcommand);
         }
 
@@ -142,7 +143,7 @@ namespace BL.Master
         }
         public DataSet GetUser(Int64 PageSize, Int64 PageNo, string SortBy, string SortDir)
         {
-            dbcommand = db.GetStoredProcCommand("uspGetUser", PageSize, PageNo, SortBy, SortDir, PKUserID, Name, FKRoleGroupID, ActiveStatus, FKDeptID,FKDesigID, FKCompanyID, FKParentID, OrgTypeID, ForAppointment);
+            dbcommand = db.GetStoredProcCommand("uspGetUser", PageSize, PageNo, SortBy, SortDir, PKUserID, Name, FKRoleGroupID, ActiveStatus, FKDeptID, FKDesigID, FKCompanyID, FKParentID, OrgTypeID, ForAppointment);
             return db.ExecuteDataSet(dbcommand);
         }
         public DataSet DeleteUser()
@@ -159,7 +160,7 @@ namespace BL.Master
         }
         public DataSet LoginWithToken()
         {
-            dbcommand = db.GetStoredProcCommand("uspLoginWithToken", LoginID, PWD,RecordType, IPAddress, MACAdd);
+            dbcommand = db.GetStoredProcCommand("uspLoginWithToken", LoginID, PWD, RecordType, IPAddress, MACAdd);
             return db.ExecuteDataSet(dbcommand);
         }
         public DataSet Logout()
@@ -170,7 +171,7 @@ namespace BL.Master
 
         public DataSet CustomerLogin(Int64 FKPartyTypeID)
         {
-            dbcommand = db.GetStoredProcCommand("uspGetCustomerLogin", FKPartyTypeID, EmailID,MobNo, PWD,FKCompanyID, IPAddress, MACAdd);
+            dbcommand = db.GetStoredProcCommand("uspGetCustomerLogin", FKPartyTypeID, EmailID, MobNo, PWD, FKCompanyID, IPAddress, MACAdd);
             return db.ExecuteDataSet(dbcommand);
         }
         public DataSet ValidateLoginWithToken()
@@ -195,7 +196,7 @@ namespace BL.Master
         }
         public DataSet GetUserDashboardLink()
         {
-            dbcommand = db.GetStoredProcCommand("uspGetUserDashboardLink", FKUserID,FKCompanyID, RoleType);
+            dbcommand = db.GetStoredProcCommand("uspGetUserDashboardLink", FKUserID, FKCompanyID, RoleType);
             return db.ExecuteDataSet(dbcommand);
         }
         public DataSet ValidateUserID()
@@ -205,7 +206,7 @@ namespace BL.Master
         }
         public DataSet GetRecentLog()
         {
-            dbcommand = db.GetStoredProcCommand("uspGetRecentLog", FKUserID,FKCompanyID);
+            dbcommand = db.GetStoredProcCommand("uspGetRecentLog", FKUserID, FKCompanyID);
             return db.ExecuteDataSet(dbcommand);
         }
         public DataSet GetAdminDashboard()
@@ -213,7 +214,7 @@ namespace BL.Master
             dbcommand = db.GetStoredProcCommand("uspGetAdminDashboard", FKUserID, FKCompanyID, RoleType);
             return db.ExecuteDataSet(dbcommand);
         }
-        public DataSet DashboardGetTopTasks(object FromDate,object ToDate)
+        public DataSet DashboardGetTopTasks(object FromDate, object ToDate)
         {
             dbcommand = db.GetStoredProcCommand("uspDashboardGetTopTasks", FKUserID, FKCompanyID, RoleType, FromDate, ToDate);
             return db.ExecuteDataSet(dbcommand);

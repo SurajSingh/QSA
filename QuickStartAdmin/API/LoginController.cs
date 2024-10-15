@@ -54,7 +54,7 @@ namespace QuickStartAdmin.API
                 {
 
                     response.empId =  ds.Tables[0].Rows[0]["PKUserID"].ToString();
-                    response.userName = ds.Tables[0].Rows[0]["Name"].ToString();
+                    response.userName = ds.Tables[0].Rows[0]["LoginID"].ToString();
                     response.emailID = ds.Tables[0].Rows[0]["emailID"].ToString();
 
                 }

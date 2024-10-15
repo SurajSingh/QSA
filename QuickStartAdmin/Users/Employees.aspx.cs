@@ -29,7 +29,7 @@ namespace QuickStartAdmin.Users
 
 
 
-       
+
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -185,7 +185,7 @@ namespace QuickStartAdmin.Users
                 ClsGeneral objgen = new ClsGeneral();
 
 
-                DataSet ds = objda.GetDepartment(100,0,"","D",0, "", Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
+                DataSet ds = objda.GetDepartment(100, 0, "", "D", 0, "", Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
                 result = objgen.SerializeToJSON(ds.Tables[0]);
             }
 
@@ -207,7 +207,7 @@ namespace QuickStartAdmin.Users
                 blMaster objda = new blMaster();
                 ClsGeneral objgen = new ClsGeneral();
 
-                DataSet ds = objda.GetDesignation(100,0,"","D",0, "", Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
+                DataSet ds = objda.GetDesignation(100, 0, "", "D", 0, "", Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
                 result = objgen.SerializeToJSON(ds.Tables[0]);
             }
 
@@ -285,7 +285,7 @@ namespace QuickStartAdmin.Users
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static string GetData(Int64 PageSize, Int64 OffSet, string SortBy, string SortDir, Int64 PKUserID, string ActiveStatus,string Name, Int64 FKDeptID)
+        public static string GetData(Int64 PageSize, Int64 OffSet, string SortBy, string SortDir, Int64 PKUserID, string ActiveStatus, string Name, Int64 FKDeptID)
         {
             string result = "";
             if (!ClsLogin.ValidateLogin() || !ClsLogin.ValidateRole((Int32)ClsRoles.UserRoles.Employees, ClsRoles.IsView))
@@ -309,7 +309,7 @@ namespace QuickStartAdmin.Users
                 objda.OrgTypeID = "C";
                 objda.ForAppointment = false;
                 DataSet ds = objda.GetUser(PageSize, OffSet, SortBy, SortDir);
-               
+
                 result = objgen.SerializeToJSON(ds);
             }
 
@@ -317,7 +317,12 @@ namespace QuickStartAdmin.Users
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static string SaveData(Int64 PKUserID, string LoginID, string EmailID, string PWD, string FName, string MName, string LName, string EnrollNo, object DOB, string Gender, string MobNo, string Phone1, string Phone2, string AddressTitle, string Address1, string Address2, Int64 FKTahsilID, Int64 FKCityID, Int64 FKStateID, Int64 FKCountryID, string ZIP, object JoinDate, object ReleasedDate, Int64 FKManagerID, Int64 FKSubmitToID, string RoleType, Int64 FKRoleGroupID, Int64 FKDeptID, Int64 FKDesigID, Int64 FKTimeZoneID, string Remark, bool IsAppointment, Int64 FKDashboardID, string ActiveStatus, decimal BillRate, decimal PayRate, decimal OverTimeBillRate, decimal OverTimePayrate, decimal OverheadMulti, Int64 FKCurrencyID, string PayPeriod, decimal SalaryAmount)
+        public static string SaveData(Int64 PKUserID, string LoginID, string EmailID, string PWD, string FName, string MName, string LName,
+            string EnrollNo, object DOB, string Gender, string MobNo, string Phone1, string Phone2, string AddressTitle, string Address1,
+            string Address2, Int64 FKTahsilID, Int64 FKCityID, Int64 FKStateID, Int64 FKCountryID, string ZIP, object JoinDate, object ReleasedDate,
+            Int64 FKManagerID, Int64 FKSubmitToID, string RoleType, Int64 FKRoleGroupID, Int64 FKDeptID, Int64 FKDesigID, Int64 FKTimeZoneID,
+            string Remark, bool IsAppointment, Int64 FKDashboardID, string ActiveStatus, decimal BillRate, decimal PayRate, decimal OverTimeBillRate,
+            decimal OverTimePayrate, decimal OverheadMulti, Int64 FKCurrencyID, string PayPeriod, decimal SalaryAmount, string ProjectIds)
         {
             string result = "";
             int status = 1;
@@ -347,7 +352,7 @@ namespace QuickStartAdmin.Users
                 objda.MName = MName;
                 objda.LName = LName;
                 objda.EnrollNo = EnrollNo;
-              
+
                 if (Convert.ToString(DOB) == "")
                 {
                     objda.DOB = null;
@@ -387,17 +392,17 @@ namespace QuickStartAdmin.Users
                     objda.ReleasedDate = (DateTime.ParseExact(ReleasedDate.ToString(), Convert.ToString(HttpContext.Current.Session["DateFormat"]), CultureInfo.InvariantCulture));
 
                 }
-               
+
                 objda.FKManagerID = FKManagerID;
-                objda.FKSubmitToID = FKSubmitToID;               
+                objda.FKSubmitToID = FKSubmitToID;
                 objda.RoleType = RoleType;
-                objda.FKRoleGroupID = FKRoleGroupID;                
+                objda.FKRoleGroupID = FKRoleGroupID;
                 objda.FKDeptID = FKDeptID;
                 objda.FKDesigID = FKDesigID;
                 objda.FKTimeZoneID = FKTimeZoneID;
                 objda.Remark = Remark;
                 objda.ForAppointment = IsAppointment;
-                objda.IsDefaultUser =false;
+                objda.IsDefaultUser = false;
                 objda.FKDashboardID = FKDashboardID;
                 objda.ActiveStatus = ActiveStatus;
                 objda.BillRate = BillRate;
@@ -415,7 +420,7 @@ namespace QuickStartAdmin.Users
                 objda.IPAddress = Classes.ClsLogin.GetRequestIP();
                 objda.FKPageID = (Int64)ClsPages.WebPages.Employees;
                 objda.MACAdd = ClsGeneral.GetRequestMACAddr();
-
+                objda.ProjectIds = ProjectIds;
 
 
                 DataSet dsResult = objda.InsertUser();

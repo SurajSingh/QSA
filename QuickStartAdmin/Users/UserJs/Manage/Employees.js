@@ -417,12 +417,12 @@ function FunValidate() {
 }
 function FunSave() {
 
-
+    var projectids = $('#divFKProjectIDSrch').GenexMultiSelectGet();
 
     var args = {
         PKUserID: PKID, LoginID: $("#txtLoginID").val(), EmailID: $("#txtEmailID").val(), PWD: $("#txtPWD").val(), FName: $("#txtFName").val(), MName: '', LName: $("#txtLName").val(), EnrollNo: '', DOB: $("#txtDOB").val(), Gender: '', MobNo: $("#txtMobNo").val(), Phone1: $("#txtPhone1").val(), Phone2: $("#txtPhone2").val(), AddressTitle: $("#txtAddressTitle").val(), Address1: $("#txtAddress1").val(), Address2: $("#txtAddress2").val(), FKTahsilID: $("#dropFKTahsilID").ValZero(), FKCityID: $("#dropFKCityID").ValZero(), FKStateID: $("#dropFKStateID").ValZero(), FKCountryID: $("#dropFKCountryID").ValZero(), ZIP: $("#txtZIP").val(),
         JoinDate: $("#txtJoinDate").val(), ReleasedDate: $("#txtReleasedDate").val(), FKManagerID: $("#txtFKManagerID").GenexAutoCompleteGet('0'), FKSubmitToID: $("#txtFKSubmitToID").GenexAutoCompleteGet('0'), RoleType: $("#dropRoleType").val(), FKRoleGroupID: $("#dropFKRoleGroupID").ValZero(), FKDeptID: $("#dropFKDeptID").ValZero(), FKDesigID: $("#dropFKDesigID").ValZero(), FKTimeZoneID: 0, Remark: $("#txtRemark").val(), IsAppointment: $("#chkAppointment").is(':checked'), FKDashboardID: 0, ActiveStatus: $("#dropActiveStatus").val(), BillRate: $("#txtBillRate").ValZero(), PayRate: $("#txtPayRate").ValZero(), OverTimeBillRate: $("#txtOverTimeBillRate").ValZero(), OverTimePayrate: $("#txtOverTimePayrate").ValZero(),
-        OverheadMulti: $("#txtOverheadMulti").ValZero(), FKCurrencyID: $("#dropFKCurrencyID").ValZero(), PayPeriod: '', SalaryAmount: $("#txtSalaryAmount").ValZero()
+        OverheadMulti: $("#txtOverheadMulti").ValZero(), FKCurrencyID: $("#dropFKCurrencyID").ValZero(), PayPeriod: '', SalaryAmount: $("#txtSalaryAmount").ValZero(), ProjectIds: projectids
     };
 
     ShowLoader();
@@ -1219,7 +1219,7 @@ function PageLoadComplete() {
     if (LoadEntity == 0) {
         FunFillData($("#tbldata").GenexTableGetPageSize(), 0, "", "A", "");
     }
-   
+
 }
 
 function PageLoadFun() {
@@ -1250,14 +1250,14 @@ function PageLoadFun() {
     FunFillDesignation();
     FunFillCurrency(FunFillCurrencyCallBack);
     FunGetEmpForAutoComplate(FunEmpCallBack, 0, 'Active');
+    FunGetProjectForAutoComplete(FunProjectCallBack, 0, 'Active', 0);
 
 
-    
 
 }
 
 function FunProjectCallBack(JsonArr) {
-    $("#dropFKProjectIDSrch").GenexAutoComplete(JsonArr, "ProjectID,Project,ClientID");
+    $("#divFKProjectIDSrch").GenexMultiSelect(JsonArr);
     /*PageLoadComplete();*/
 }
 function FunGridLayoutCallback(JsonArr) {

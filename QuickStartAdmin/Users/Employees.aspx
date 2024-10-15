@@ -311,7 +311,6 @@
                                 </div>
 
                             </div>
-                           <%-- Dushyant Sing--%>
                             <div class="col-sm-4 col-xs-4">
                                 <div class="mb-3">
                                     <label class="form-label">
@@ -326,8 +325,8 @@
                             </div>
                             <div class="col-sm-3 col-xs-4">
                                 <div class="mb-3">
-                                <label>Project:</label>
-                                <div id="divFKProjectIDSrch"></div>
+                                    <label class="form-label">Project:</label>
+                                    <div id="divFKProjectIDSrch"></div>
                                 </div>
                             </div>
                         </div>
@@ -511,7 +510,7 @@
                                 <table id="tblGroup" class="table table-striped table-bordered dt-responsive nowrap">
                                     <thead>
                                         <tr>
-                                            <th style="width:200px;">Group Name</th>
+                                            <th style="width: 200px;">Group Name</th>
                                             <th>Description</th>
                                         </tr>
                                     </thead>

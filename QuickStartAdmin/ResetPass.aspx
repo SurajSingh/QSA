@@ -21,7 +21,7 @@
         </div>
     </form>
 </body>--%>
-    <body>
+<body>
     <div id="divloc"></div>
     <div class="login_form">
         <div class="container-fluid">
@@ -29,7 +29,6 @@
                 <div class="col-lg-8 col-md-12 col-sm-12 login_bg">
                     <div class="side_logo swingimage">
                         <img src="/img/qsalogo.png" style="max-width: 200px;">
-                       
                     </div>
                 </div>
 
@@ -46,7 +45,7 @@
                                 <a class="txt2" href="Login.aspx">Login</a>
                             </div>
                         </div>
-                         <div id="divresetpassword" runat="server" visible="true">
+                        <div id="divresetpassword" runat="server" visible="true">
                             <img src="/img/qsalogo.png" class="mobile-logo">
                             <span class="login100-form-title">Reset Password
                             </span>
@@ -72,21 +71,21 @@
                                 &nbsp; Enter New Password!
                             </div>
                             <div class="alert-danger" id="validPwd" style="display: none;">
-                                &nbsp;  Confirm Password does not set password!
+                                &nbsp;  Please make sure your passswords match!
                             </div>
                             <div class="alert-danger" id="diverror" runat="server" visible="false">
-                                &nbsp;  Confirm Password does not set password!
+                                &nbsp;   Please make sure your passswords match!
                             </div>
                             <div class="container-login100-form-btn">
 
-                                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="login100-form-btn" OnClientClick="return ValidatePwd();" OnClick="btnSubmit_Click"/>
+                                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="login100-form-btn" OnClientClick="return ValidatePwd();" OnClick="btnSubmit_Click" />
 
                             </div>
 
                             <div class="text-center p-t-12">
                                 <span class="txt1">Back to 
                                 </span>
-                              <a class="txt2" href="Login.aspx">Login</a>
+                                <a class="txt2" href="Login.aspx">Login</a>
 
                             </div>
 

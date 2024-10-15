@@ -30,9 +30,9 @@ namespace QuickStartAdmin.Users.MasterAPI
             if (ClsLogin.ValidateLogin())
             {
                 string StrFilter = "FKRoleID=" + FKRoleID;
-               
+
                 DataRow[] Dr = ((DataTable)HttpContext.Current.Session["RoleTable"]).Select(StrFilter);
-                
+
                 if (Dr.Length == 0)
                 {
 
@@ -132,11 +132,11 @@ namespace QuickStartAdmin.Users.MasterAPI
             {
                 blCompany objda = new blCompany();
                 ClsGeneral objgen = new ClsGeneral();
-               
+
 
                 DataSet ds = objda.GetNotification(Convert.ToInt64(HttpContext.Current.Session["UserID"]), Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
-                
-                if(ClsLogin.ValidateRole((Int32)ClsRoles.UserRoles.Announcements, ClsRoles.IsView))
+
+                if (ClsLogin.ValidateRole((Int32)ClsRoles.UserRoles.Announcements, ClsRoles.IsView))
                 {
                     ds.Tables[2].Rows[0]["IsAnnouncement"] = true;
                 }
@@ -192,7 +192,7 @@ namespace QuickStartAdmin.Users.MasterAPI
             return result;
 
         }
-       
+
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -328,7 +328,7 @@ namespace QuickStartAdmin.Users.MasterAPI
             {
                 blMaster objda = new blMaster();
                 ClsGeneral objgen = new ClsGeneral();
-                DataSet ds = objda.GetTaxMaster(100,0,"","D",0,"", Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
+                DataSet ds = objda.GetTaxMaster(100, 0, "", "D", 0, "", Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
                 result = objgen.SerializeToJSON(ds.Tables[0]);
             }
 
@@ -423,7 +423,7 @@ namespace QuickStartAdmin.Users.MasterAPI
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static string GetProjectForAutoComplete(Int64 PKID, string ActiveStatus,Int64 FKClientID)
+        public static string GetProjectForAutoComplete(Int64 PKID, string ActiveStatus, Int64 FKClientID)
         {
             string result = "";
             if (!ClsLogin.ValidateLogin())
@@ -435,7 +435,7 @@ namespace QuickStartAdmin.Users.MasterAPI
             {
                 blGetMaster objda = new blGetMaster();
                 ClsGeneral objgen = new ClsGeneral();
-                DataSet ds = objda.GetProjectForAutoComplete(PKID, ActiveStatus, FKClientID,Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
+                DataSet ds = objda.GetProjectForAutoComplete(PKID, ActiveStatus, FKClientID, Convert.ToInt64(HttpContext.Current.Session["OrgID"]), Convert.ToInt64(HttpContext.Current.Session["UserID"]));
                 if (ds.Tables.Count > 0)
                 {
                     result = objgen.SerializeToJSON(ds.Tables[0]);
@@ -453,7 +453,7 @@ namespace QuickStartAdmin.Users.MasterAPI
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static string GetTaskForAutoComplete(Int64 PKID, Int64 FKDeptID,string TType, string ActiveStatus)
+        public static string GetTaskForAutoComplete(Int64 PKID, Int64 FKDeptID, string TType, string ActiveStatus)
         {
             string result = "";
             if (!ClsLogin.ValidateLogin())
@@ -560,7 +560,7 @@ namespace QuickStartAdmin.Users.MasterAPI
                 blAsset objda = new blAsset();
                 ClsGeneral objgen = new ClsGeneral();
 
-                DataSet ds = objda.GetAssetCategory(0,"", Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
+                DataSet ds = objda.GetAssetCategory(0, "", Convert.ToInt64(HttpContext.Current.Session["OrgID"]));
                 result = objgen.SerializeToJSON(ds.Tables[0]);
             }
 
@@ -581,7 +581,7 @@ namespace QuickStartAdmin.Users.MasterAPI
                 blAsset objda = new blAsset();
                 ClsGeneral objgen = new ClsGeneral();
 
-                DataSet ds = objda.GetParty(0,0,"","",0, Convert.ToInt64(HttpContext.Current.Session["OrgID"]),"");
+                DataSet ds = objda.GetParty(0, 0, "", "", 0, Convert.ToInt64(HttpContext.Current.Session["OrgID"]), "");
                 result = objgen.SerializeToJSON(ds.Tables[0]);
             }
 
