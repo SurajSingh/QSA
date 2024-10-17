@@ -188,6 +188,9 @@ function FunFillDetail() {
                 if (jsonarr.data.Table.length > 0) {
                     if (jsonarr.data.Table[0].Result == "1") {
                         FunBlank();
+                        const passwordField = $('#txtPWD');
+                        passwordField.attr('type', 'password');
+
                         $('#popupTitle').find('span').html("Modify Employee");
                         PKID = jsonarr.data.Table[0].PKUserID;
 
@@ -257,6 +260,8 @@ function FunFillDetail() {
 
                         IsValidLogin = 1;
                         FunActiveRoleGroup();
+                        var projectIds = jsonarr.data.Table3[0].ProjectIds;
+                        $('#divFKProjectIDSrch').GenexMultiSelectSetStr(projectIds);
 
                         opendiv('divAddNew');
                     }
@@ -1158,7 +1163,6 @@ function FunDesigCallFromChild() {
 
 }
 function InitilizeEvents() {
-
     $("#btnSave").click(function () {
         FunValidate();
     });
@@ -1211,6 +1215,13 @@ function InitilizeEvents() {
     $("#btnDeleteRole").click(function () {
         FunDeleteRoleGroup();
 
+    });
+    $('#togglePassword').on('click', function () {
+        const passwordField = $('#txtPWD');
+        const type = passwordField.attr('type') === 'password' ? 'text' : 'password';
+        passwordField.attr('type', type);
+
+        $(this).toggleClass('fa-eye fa-eye-slash');
     });
 }
 

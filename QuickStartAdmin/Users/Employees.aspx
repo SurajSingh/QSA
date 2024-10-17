@@ -168,6 +168,7 @@
                                         Password: *                       
                                     </label>
                                     <input id="txtPWD" type="password" class="form-control" maxlength="15" />
+                                    <i id="togglePassword" class="fa fa-eye-slash"></i>
                                 </div>
                             </div>
 
@@ -649,6 +650,5 @@
     <!-- end row -->
     <script src="MasterJs/AddressJs.js"></script>
     <script src="UserJs/Manage/Employees.js?version=<%=PageVersion%>"></script>
-
     <%--<script src="UserJs/Reports/BillingReport/RptInvoiceRegister.js"></script>--%>
 </asp:Content>
